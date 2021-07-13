@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:san/models/product.dart';
+import 'package:san/screens/Home/Components/size_config.dart';
+
 
 class ProductCard extends StatelessWidget {
   // final String image;
@@ -11,6 +13,9 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    print('size size');
+    print('${SizeConfig.screenWidth}');
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(8.0),

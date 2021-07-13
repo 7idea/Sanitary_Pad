@@ -23,14 +23,6 @@ class HomeProduct extends StatelessWidget {
           backgroundColor: Colors.white,
         ),
         backgroundColor: Colors.blueAccent[400],
-        // body: SingleChildScrollView(
-        //   scrollDirection: Axis.vertical,
-        //   child: Column(
-        //     children: [
-        //       ...List.generate(demoProduct.length, (index) => ProductCard())
-        //     ],
-        //   ),
-        // ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: SingleChildScrollView(
