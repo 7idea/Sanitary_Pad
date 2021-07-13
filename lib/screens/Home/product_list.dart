@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:san/models/Product/product.dart';
+import 'package:flutter/material.dart';
+import 'package:san/models/product.dart';
 import 'package:san/screens/Home/Components/product_card.dart';
 
 class ProductList extends StatelessWidget {
@@ -9,6 +10,10 @@ class ProductList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Text(
+          'Most pupular',
+          style: TextStyle(fontSize: 30, color: Colors.white70),
+        ),
         SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(

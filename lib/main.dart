@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:san/models/Product/product.dart';
+import 'package:san/models/product.dart';
 import 'package:san/screens/Home/product_list.dart';
+
+import 'screens/Home/Components/search.dart';
 
 // import 'package:san/screens/HomeScreens/product_card.dart';
 
@@ -34,36 +36,7 @@ class HomeProduct extends StatelessWidget {
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  /*----------------------------------------Search---------------------------------------- */
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 350,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                        ),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              hintText: "Search Procduct",
-                              prefixIcon: Icon(Icons.search),
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 10)),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                //
-                ProductList()
-              ],
+              children: [SearchBox(), ProductList()],
             ),
           ),
         ),
