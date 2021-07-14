@@ -1,4 +1,3 @@
-
 class Product {
   final List<String> images;
   final num price;
@@ -37,7 +36,7 @@ List<Product> demoProduct = [
       title: 'Kind Green',
       price: 90,
       description:
-          'Always Ultra Thin Feminine Pads with Wings for Women, Super Absorbency, Unscented, Size 2 (126 Count)'),
+          'Super dry Feminine Pads with Wings for Women, Super Absorbency, Unscented, Size 2 (126 Count)'),
   Product(
     id: 1,
     images: ['asset/images/sanBlue.jpg', 'asset/images/sanBlue2.jpg'],

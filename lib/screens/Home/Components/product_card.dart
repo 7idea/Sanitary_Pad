@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:san/models/product.dart';
-import 'package:san/screens/Home/Components/size_config.dart';
-
+import 'package:san/models/Product/product.dart';
+import 'package:san/size_config.dart';
 
 class ProductCard extends StatelessWidget {
   // final String image;
@@ -14,19 +13,27 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    print('size size');
-    print('${SizeConfig.screenWidth}');
+    print('runnn?');
+
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              decoration: BoxDecoration(color: Colors.deepOrange),
-              width: 200,
-              height: 200,
-              child: Image.asset(product.images[0]),
+            SizedBox(
+              width: getProportionateScreenWidth(90),
+              child: AspectRatio(
+                aspectRatio: 1.02,
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(product.images[0]), fit: BoxFit.fill),
+                    borderRadius: BorderRadius.circular(7),
+                  ),
+                  // child: Image.asset(product.images[0]),
+                ),
+              ),
             ),
             Container(
               height: 200,
@@ -37,15 +44,20 @@ class ProductCard extends StatelessWidget {
                   Container(
                       margin:
                           EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      decoration: BoxDecoration(color: Colors.yellow),
-                      child: Text(
-                        product.title,
-                        style: TextStyle(fontSize: 20),
+                      decoration: BoxDecoration(
+                          color: Colors.blue[100],
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          product.title,
+                          style: TextStyle(fontSize: 20),
+                        ),
                       )),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     child: Text(
-                      "Price ${product.price}",
+                      "Price ฿${product.price}",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ),
