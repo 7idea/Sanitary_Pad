@@ -24,6 +24,7 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Colors.redAccent,
       // leading: PopupMenuButton<String>(
       //   icon: Icon(Icons.menu),
       //   onSelected: handleClick,
@@ -36,7 +37,10 @@ class _MenuState extends State<Menu> {
       //     }).toList();
       //   },
       // ),
-      title: Text('Homepage'),
+      title: Text(
+        'My Profile',
+       
+      ),
       actions: <Widget>[
         Container(
           width: 75,

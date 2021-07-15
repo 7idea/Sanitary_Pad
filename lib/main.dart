@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'dart:convert'; //json.decode
 import 'package:flutter_line_sdk/flutter_line_sdk.dart';
-import 'package:san/screens/line_login.dart';
+// import 'package:san/screens/line_login.dart';
 import 'package:san/screens/profile.dart';
 
 void main() async {
@@ -50,10 +50,16 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: (LineLogin()),
-      home:Profile(
-        idTokenState: 'none',
-        nameState: 'none',
-        pictureState: 'none',
+      // home:Profile(
+      //   idTokenState: 'none',
+      //   nameState: 'none',
+      //   pictureState: 'none',
+      // ),
+      home: Profile(
+        name: "Anucha Prasungnoen",
+        phone: "none",
+        address: ['none'],
+        bankAccount: "none",
       ),
     );
   }
@@ -80,10 +86,16 @@ class Desktop extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      // home: Profile(
+      //   idTokenState: idToken,
+      //   nameState: 'none',
+      //   pictureState: 'none',
+      // ),
       home: Profile(
-        idTokenState: idToken,
-        nameState: 'none',
-        pictureState: 'none',
+        name: "none",
+        phone: "none",
+        address: ['none'],
+        bankAccount: "none",
       ),
     );
   }

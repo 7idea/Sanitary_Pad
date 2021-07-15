@@ -1,233 +1,236 @@
 import 'package:flutter/material.dart';
 import 'package:san/assets/drawer.dart';
 import 'package:san/assets/menu.dart';
-import 'package:jwt_decode/jwt_decode.dart';
+// import 'package:jwt_decode/jwt_decode.dart';
 
 class Profile extends StatelessWidget {
-  final String idTokenState;
-  final String nameState;
-  final String pictureState;
-
   const Profile({
     Key? key,
-    required this.idTokenState,
-    required this.nameState,
-    required this.pictureState,
-  }) : super(key: key);
+    required this.name,
+    required this.phone,
+    required this.address,
+    required this.bankAccount,
+  });
+
+  final String name;
+  final String phone;
+  final List<String> address;
+  final String bankAccount;
 
   @override
   Widget build(BuildContext context) {
-    var data = {};
-    var name = '';
-    var picture = '';
-
-    if (idTokenState != 'none') {
-      data = Jwt.parseJwt(idTokenState);
-      name = data['name'];
-      picture = data['picture'];
-    } else {
-      name = nameState;
-      picture = pictureState;
-    }
-
     return Scaffold(
-      appBar: Menu(img: picture),
+      appBar: Menu(img: "none"),
       drawer: myDrawer,
-      body: Column(
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.redAccent, Colors.pinkAccent],
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.redAccent, Colors.pinkAccent],
+                ),
               ),
-            ),
-            child: Container(
-              width: double.infinity,
-              height: 350.0,
-              child: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(picture
-                          // 'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg'
+              child: Container(
+                width: double.infinity,
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg'),
+                        radius: 50.0,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        name,
+                        style: TextStyle(fontSize: 22.0, color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      MyCard(title: 'เบอร์โทร', text: '0907479492'),
+                      MyCard(
+                          title: 'ที่อยู่',
+                          text: 'หมู่ที่ 7 209/198 ถนนพหลโยธิน 87'),
+                      MyCard(title: 'จำนวนเงินในระบบ', text: '10,000'),
+                      Card(
+                        margin: EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 8.0),
+                        clipBehavior: Clip.antiAlias,
+                        color: Colors.white,
+                        elevation: 8.0,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 22.0, horizontal: 8.0),
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      'บัญชีธนาคาร',
+                                      style: TextStyle(
+                                        color: Colors.redAccent,
+                                        fontSize: 22.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    Text(
+                                      'SCB ธนาคารไทยพาณิชย์',
+                                      style: TextStyle(
+                                          color: Colors.redAccent,
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w200),
+                                    ),
+                                    Text(
+                                      '769-2-07290-6',
+                                      style: TextStyle(
+                                          color: Colors.redAccent,
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w200),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                      radius: 50.0,
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Text(
-                      name,
-                      style: TextStyle(fontSize: 22.0, color: Colors.white),
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Card(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
-                      clipBehavior: Clip.antiAlias,
-                      color: Colors.white,
-                      elevation: 8.0,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 22.0, horizontal: 8.0),
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: Column(
-                                children: <Widget>[
-                                  Text(
-                                    'Posts',
-                                    style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 10.0,
-                                  ),
-                                  Text(
-                                    '5300',
-                                    style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.w200),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Column(
-                                children: <Widget>[
-                                  Text(
-                                    'Followers',
-                                    style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 10.0,
-                                  ),
-                                  Text(
-                                    '28.6k',
-                                    style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.w200),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Column(
-                                children: <Widget>[
-                                  Text(
-                                    'Follow',
-                                    style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 10.0,
-                                  ),
-                                  Text(
-                                    '1200',
-                                    style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.w200),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
                         ),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.redAccent,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(15),
+                            ),
+                          ),
+                          minimumSize: Size(200, 40),
+                        ),
+                        onPressed: () {},
+                        child: const Text('LOGOUT'),
+                      ),
+                      SizedBox(
+                        height: 12.0,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          Container(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 30.0, horizontal: 16.0),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Container(
+//                         width: 300.0,
+//                         child: RaisedButton(
+//                           onPressed: () {},
+//                           shape: RoundedRectangleBorder(
+//                             borderRadius: BorderRadius.circular(
+//                               80.0,
+//                             ),
+//                           ),
+//                           elevation: 1,
+//                           padding: EdgeInsets.all(0.0),
+//                           child: Ink(
+//                             decoration: BoxDecoration(
+//                               gradient: LinearGradient(
+//                                 begin: Alignment.topCenter,
+//                                 end: Alignment.bottomCenter,
+//                                 colors: [
+//                                   Colors.redAccent,
+//                                   Colors.redAccent,
+//                                 ],
+//                               ),
+//                               borderRadius: BorderRadius.circular(30.0),
+//                             ),
+//                             child: Container(
+//                               constraints: BoxConstraints(
+//                                   maxWidth: 300.0, minHeight: 50.0),
+//                               alignment: Alignment.center,
+//                               child: Text(
+//                                 'Logout',
+//                                 style: TextStyle(
+//                                     color: Colors.white,
+//                                     fontSize: 24.0,
+//                                     letterSpacing: 2.0,
+//                                     fontWeight: FontWeight.w300),
+//                               ),
+//                             ),
+//                           ),
+//                         ),
+//                       ),
+
+class MyCard extends StatelessWidget {
+  const MyCard({
+    Key? key,
+    required this.title,
+    required this.text,
+  }) : super(key: key);
+
+  final String title;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+      clipBehavior: Clip.antiAlias,
+      color: Colors.white,
+      elevation: 8.0,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 22.0, horizontal: 8.0),
+        child: Row(
+          children: <Widget>[
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'Bio',
+                    title,
                     style: TextStyle(
                       color: Colors.redAccent,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 28.0,
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(
                     height: 10.0,
                   ),
                   Text(
-                    'My name is $name and i am a freelance mobile app Developper.\n' +
-                        'if you need any mobile app for your company then contact me for more informations',
+                    text,
                     style: TextStyle(
-                      fontSize: 22.0,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                      letterSpacing: 2.0,
-                    ),
+                        color: Colors.redAccent,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.w200),
                   ),
                 ],
               ),
             ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Container(
-            width: 300.0,
-            child: RaisedButton(
-              onPressed: () {},
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  80.0,
-                ),
-              ),
-              elevation: 0.0,
-              padding: EdgeInsets.all(0.0),
-              child: Ink(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [Colors.pinkAccent, Colors.redAccent],
-                  ),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                child: Container(
-                  constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Logout',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24.0,
-                        letterSpacing: 2.0,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
