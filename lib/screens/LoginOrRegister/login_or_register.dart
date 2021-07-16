@@ -4,16 +4,16 @@ class LoginOrRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
+
+        body: Container(
           height: MediaQuery.of(context).size.height - 50,
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 250.0),
               CircleAvatar(
                 backgroundImage: AssetImage('assets/icons/logo.jpeg'),
-                
                 radius: 40.0,
               ),
               SizedBox(height: 10.0),
@@ -55,16 +55,25 @@ class LoginOrRegister extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   child: TextButton(
-                    style: TextButton.styleFrom(primary: Colors.white),
+                    style: TextButton.styleFrom(
+                      primary: Colors.white,
+                    ),
                     onPressed: () {},
                     child: Text('LOGIN'),
                   ),
                 ),
               ),
+              SizedBox(height: 50.0),
+              TextButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.pink.shade400,
+                ),
+                onPressed: () {},
+                child: Text('Skip for now'),
+              ),
             ],
           ),
         ),
-      ),
     );
   }
 }
