@@ -1,5 +1,9 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:san/routes.dart';
+import 'package:san/screens/Splash_Screen/splash_screen.dart';
+
+// import 'package:san/screens/HomeScreens/product_card.dart';
 import 'dart:convert'; //json.decode
 import 'package:flutter_line_sdk/flutter_line_sdk.dart';
 // import 'package:san/screens/line_login.dart';
@@ -44,23 +48,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Santitary App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          scaffoldBackgroundColor: Colors.white,
+          visualDensity: VisualDensity.adaptivePlatformDensity),
+      routes: routes,
+      initialRoute: SplashScreen.routeName,
+      debugShowCheckedModeBanner: false,
+ 
       // home: (LineLogin()),
       // home:Profile(
       //   idTokenState: 'none',
       //   nameState: 'none',
       //   pictureState: 'none',
       // ),
-      home: Profile(
-        name: "Anucha Prasungnoen",
-        phone: "none",
-        address: ['none'],
-        bankAccount: "none",
-      ),
     );
   }
 }

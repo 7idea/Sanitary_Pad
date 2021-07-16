@@ -11,7 +11,7 @@ class Profile extends StatelessWidget {
     required this.address,
     required this.bankAccount,
   });
-
+  static final routeName = '/profile';
   final String name;
   final String phone;
   final List<String> address;
