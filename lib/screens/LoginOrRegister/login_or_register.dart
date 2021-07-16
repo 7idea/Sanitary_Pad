@@ -4,76 +4,100 @@ class LoginOrRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Container(
+        height: MediaQuery.of(context).size.height - 50,
+        width: double.infinity,
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 250.0),
+            CircleAvatar(
+              backgroundImage: AssetImage('assets/icons/logo.jpeg'),
+              radius: 40.0,
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'FLUTTER',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25.0,
+                  color: Colors.grey.shade800),
+            ),
+            SizedBox(height: 300.0),
+            RegisterButton(),
+            SizedBox(height: 10.0),
+            LoginButton(),
+            SizedBox(height: 50.0),
+            TextButton(
+              style: TextButton.styleFrom(
+                primary: Colors.pink.shade400,
+              ),
+              onPressed: () {},
+              child: Text('Skip for now'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-        body: Container(
-          height: MediaQuery.of(context).size.height - 50,
-          width: double.infinity,
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 250.0),
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/icons/logo.jpeg'),
-                radius: 40.0,
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                'FLUTTER',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25.0,
-                    color: Colors.grey.shade800),
-              ),
-              SizedBox(height: 300.0),
-              Container(
-                width: 300.0,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.0),
-                    border: Border.all(
-                      color: Colors.pink.shade300,
-                      width: 2,
-                    ),
-                  ),
-                  child: TextButton(
-                    style: TextButton.styleFrom(primary: Colors.pink.shade400),
-                    onPressed: () {},
-                    child: Text('REGISTER'),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10.0),
-              Container(
-                width: 300.0,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: FractionalOffset.topLeft,
-                      end: FractionalOffset.topRight,
-                      colors: [Colors.pink.shade200, Colors.pink],
-                    ),
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                    ),
-                    onPressed: () {},
-                    child: Text('LOGIN'),
-                  ),
-                ),
-              ),
-              SizedBox(height: 50.0),
-              TextButton(
-                style: TextButton.styleFrom(
-                  primary: Colors.pink.shade400,
-                ),
-                onPressed: () {},
-                child: Text('Skip for now'),
-              ),
-            ],
+class RegisterButton extends StatelessWidget {
+  const RegisterButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300.0,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: FractionalOffset.topLeft,
+            end: FractionalOffset.topRight,
+            colors: [Colors.pink.shade200, Colors.pink],
+          ),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        child: TextButton(
+          style: TextButton.styleFrom(
+            
+            primary: Colors.white,
+          ),
+          onPressed: () {},
+          child: Text('REGISTER'),
+        ),
+      ),
+    );
+  }
+}
+
+class LoginButton extends StatelessWidget {
+  const LoginButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300.0,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5.0),
+          border: Border.all(
+            color: Colors.pink.shade300,
+            width: 2,
           ),
         ),
+        child: TextButton(
+          style: TextButton.styleFrom(
+            primary: Colors.pink.shade400,
+          ),
+          onPressed: () {},
+          child: Text('LOGIN'),
+        ),
+      ),
     );
   }
 }
