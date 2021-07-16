@@ -7,7 +7,7 @@ import 'package:san/screens/Splash_Screen/splash_screen.dart';
 import 'dart:convert'; //json.decode
 import 'package:flutter_line_sdk/flutter_line_sdk.dart';
 // import 'package:san/screens/line_login.dart';
-import 'package:san/screens/profile.dart';
+import 'package:san/screens/Profile/profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
