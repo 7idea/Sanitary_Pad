@@ -4,6 +4,7 @@ import 'package:san/routes.dart';
 import 'package:san/screens/Home/Components/home_product.dart';
 import 'package:san/screens/Splash_Screen/splash_content.dart';
 import 'package:san/screens/Splash_Screen/splash_screen.dart';
+import 'package:san/screens/profile.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -81,6 +82,7 @@ class _BodyState extends State<Body> {
                     ),
                     press: () {
                       print('55555');
+                      Navigator.pushNamed(context, Profile.routeName);
                     },
                   ),
                   boxButton(context),
