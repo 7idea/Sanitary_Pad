@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:san/components/default_button.dart';
+import 'package:san/routes.dart';
+import 'package:san/screens/Home/Components/home_product.dart';
 import 'package:san/screens/Splash_Screen/splash_content.dart';
+import 'package:san/screens/Splash_Screen/splash_screen.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -67,37 +71,19 @@ class _BodyState extends State<Body> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 80,
                   ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(4),
-                    child: Stack(
-                      children: <Widget>[
-                        Positioned.fill(
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: <Color>[
-                                  Color(0xFF0D47A1),
-                                  Color(0xFF1976D2),
-                                  Color(0xFF42A5F5),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            padding: const EdgeInsets.all(16.0),
-                            primary: Colors.white,
-                            textStyle: const TextStyle(fontSize: 20),
-                          ),
-                          onPressed: () {},
-                          child: const Text('Gradient'),
-                        ),
-                      ],
+                  DefaultButton(
+                    color: Colors.yellow,
+                    text: Text(
+                      'Shop now',
+                      style: TextStyle(fontSize: 30),
                     ),
+                    press: () {
+                      print('55555');
+                    },
                   ),
+                  boxButton(context),
                 ],
               ),
             )
@@ -117,4 +103,48 @@ class _BodyState extends State<Body> {
           borderRadius: BorderRadius.circular(3)),
     );
   }
+}
+
+Widget boxButton(BuildContext context) {
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(4),
+    child: Stack(
+      children: <Widget>[
+        Positioned.fill(
+          child: Container(
+            width: double.infinity,
+            height: 500,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: <Color>[
+                  Color(0xFF0D47A1),
+                  Color(0xFF1976D2),
+                  Color(0xFF42A5F5),
+                ],
+              ),
+            ),
+          ),
+        ),
+        // Container(
+        //   width: 100,
+        //   height: 100,
+        //   decoration: BoxDecoration(color: Colors.red),
+        // ),
+        TextButton(
+          style: TextButton.styleFrom(
+            padding: const EdgeInsets.all(16.0),
+            primary: Colors.white,
+            textStyle: const TextStyle(fontSize: 20),
+          ),
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              HomeProduct.routeName,
+            );
+          },
+          child: const Text('Gradient'),
+        ),
+      ],
+    ),
+  );
 }

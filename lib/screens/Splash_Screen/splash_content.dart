@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../size_config.dart';
+import '../../ui_config/size_config.dart';
 
 class Splash extends StatelessWidget {
   const Splash({Key? key, required this.image, required this.text})

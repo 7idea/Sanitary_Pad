@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:san/models/Product/product.dart';
-import 'package:san/size_config.dart';
+import 'package:san/ui_config/size_config.dart';
 
 class ProductCard extends StatelessWidget {
   // final String image;
@@ -22,7 +22,7 @@ class ProductCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SizedBox(
-              width: getProportionateScreenWidth(90),
+              width: getProportionateScreenWidth(160),
               child: AspectRatio(
                 aspectRatio: 1.02,
                 child: Container(
