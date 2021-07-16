@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:san/assets/drawer.dart';
-import 'package:san/assets/menu.dart';
+import 'package:san/components/drawer.dart';
+import 'package:san/components/menu.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 
 class Profile extends StatelessWidget {

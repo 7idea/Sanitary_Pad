@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:san/screens/Home/Components/home_product.dart';
+import 'package:san/screens/Home/home_product.dart';
 import 'package:san/screens/Splash_Screen/splash_screen.dart';
-import 'package:san/screens/profile.dart';
+import 'package:san/screens/Profile/profile.dart';
 
 final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(),

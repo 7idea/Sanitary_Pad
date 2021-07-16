@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:san/assets/drawer.dart';
+import 'package:san/components/drawer.dart';
 
 class Menu extends StatefulWidget implements PreferredSizeWidget {
   final String img;

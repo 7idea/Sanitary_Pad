@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:san/components/default_button.dart';
 import 'package:san/routes.dart';
-import 'package:san/screens/Home/Components/home_product.dart';
+import 'package:san/screens/Home/home_product.dart';
 import 'package:san/screens/Splash_Screen/splash_content.dart';
 import 'package:san/screens/Splash_Screen/splash_screen.dart';
-import 'package:san/screens/profile.dart';
+import 'package:san/screens/Profile/profile.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);

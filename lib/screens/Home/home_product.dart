@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:san/screens/Home/Components/search.dart';
-import '../product_list.dart';
+import 'product_list.dart';
 
 class HomeProduct extends StatelessWidget {
   static String routeName = '/homeProduct';
@@ -10,6 +10,7 @@ class HomeProduct extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
+          
         ),
         backgroundColor: Colors.blueAccent[200],
         body: SingleChildScrollView(
