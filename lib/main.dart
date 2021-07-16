@@ -1,6 +1,7 @@
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:san/routes.dart';
+import 'package:san/screens/LoginOrRegister/login_or_register.dart';
 import 'package:san/screens/Splash_Screen/splash_screen.dart';
 
 // import 'package:san/screens/HomeScreens/product_card.dart';
@@ -52,10 +53,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      routes: routes,
+      // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
- 
+      home: LoginOrRegister(),
       // home: (LineLogin()),
       // home:Profile(
       //   idTokenState: 'none',
