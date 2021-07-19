@@ -52,6 +52,15 @@ class Login extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(
+                    height: MediaQuery.of(context).size.width > 600 ? 20 : 10),
+                TextButton(
+                  onPressed: () {},
+                  child: Image.asset(
+                    'assets/images/btn_base.png',
+                    width: 50,
+                  ),
+                ),
               ],
             ),
           ),

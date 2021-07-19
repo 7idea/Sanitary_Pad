@@ -41,10 +41,7 @@ class Register extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 5),
-                    Text(
-                      'or',
-                      style: TextStyle(color: Colors.grey.shade500),
-                    ),
+                    Text('or', style: TextStyle(color: Colors.grey.shade500)),
                     SizedBox(width: 5),
                     Expanded(
                       child: Container(
@@ -53,6 +50,16 @@ class Register extends StatelessWidget {
                       ),
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width > 600 ? 20 : 10
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Image.asset(
+                    'assets/images/btn_base.png',
+                    width: 50,
+                  ),
                 ),
               ],
             ),
@@ -74,14 +81,20 @@ Widget inputFile({label, obscureText = false}) {
         obscureText: obscureText,
         cursorColor: Colors.pink.shade200,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          contentPadding: EdgeInsets.symmetric(
+            vertical: 0,
+            horizontal: 10,
+          ),
           fillColor: Colors.grey[100],
           filled: true,
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white, width: 0),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.pink.shade200, width: 2),
+            borderSide: BorderSide(
+              color: Colors.pink.shade200,
+              width: 2,
+            ),
           ),
           hintText: label,
           hintStyle: TextStyle(color: Colors.grey[400]),
@@ -109,7 +122,10 @@ class RegisterButton extends StatelessWidget {
           gradient: LinearGradient(
             begin: FractionalOffset.topLeft,
             end: FractionalOffset.topRight,
-            colors: [Colors.pink.shade200, Colors.pink],
+            colors: [
+              Colors.pink.shade200,
+              Colors.pink,
+            ],
           ),
           borderRadius: BorderRadius.circular(5.0),
         ),

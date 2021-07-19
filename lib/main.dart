@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      home: LoginOrRegister(),
+      home: Login(),
       // home: (LineLogin()),
       // home:Profile(
       //   idTokenState: 'none',
