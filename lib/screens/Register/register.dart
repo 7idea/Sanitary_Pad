@@ -7,43 +7,48 @@ class Register extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height - 50,
         width: double.infinity,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 65.0),
-          child: Column(
-            children: [
-              SizedBox(height: 250.0),
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/icons/logo.jpeg'),
-                radius: 40.0,
-              ),
-              SizedBox(height: 10.0),
-              inputFile(label: "Full name"),
-              SizedBox(height: 300.0),
-              RegisterButton(),
-              SizedBox(height: 30.0),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      color: Colors.grey.shade300,
-                      height: 1,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 65.0),
+            child: Column(
+              children: [
+                SizedBox(height: 100.0),
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/icons/logo.jpeg'),
+                  radius: 40.0,
+                ),
+                SizedBox(height: 30.0),
+                inputFile(label: "Full name"),
+                inputFile(label: "Email"),
+                inputFile(label: "Password", obscureText: true),
+                inputFile(label: "Confirm Password", obscureText: true),
+                SizedBox(height: 100.0),
+                RegisterButton(),
+                SizedBox(height: 30.0),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        color: Colors.grey.shade300,
+                        height: 1,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 5),
-                  Text(
-                    'or',
-                    style: TextStyle(color: Colors.grey.shade500),
-                  ),
-                  SizedBox(width: 5),
-                  Expanded(
-                    child: Container(
-                      color: Colors.grey.shade300,
-                      height: 1,
+                    SizedBox(width: 5),
+                    Text(
+                      'or',
+                      style: TextStyle(color: Colors.grey.shade500),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    SizedBox(width: 5),
+                    Expanded(
+                      child: Container(
+                        color: Colors.grey.shade300,
+                        height: 1,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -62,17 +67,16 @@ Widget inputFile({label, obscureText = false}) {
         obscureText: obscureText,
         decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            fillColor: Colors.grey[100],
+            filled: true,
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.grey.shade400,
-              ),
+              borderSide: BorderSide(color: Colors.white, width: 0),
             ),
-            border: OutlineInputBorder(
-              borderSide: new BorderSide(
-                color: Colors.pink.shade400,
-              ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.pink.shade200, width: 2),
             ),
-            hintText: label),
+            hintText: label,
+            hintStyle: TextStyle(color: Colors.grey[400])),
       ),
       SizedBox(
         height: 10,
