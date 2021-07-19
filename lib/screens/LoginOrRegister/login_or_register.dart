@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:san/screens/Login/login.dart';
+import 'package:san/screens/Register/register.dart';
+import 'package:san/screens/Splash_Screen/index.dart';
 
 class LoginOrRegister extends StatelessWidget {
   @override
@@ -32,7 +35,12 @@ class LoginOrRegister extends StatelessWidget {
               style: TextButton.styleFrom(
                 primary: Colors.pink.shade400,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SplashScreen()),
+                );
+              },
               child: Text('Skip for now'),
             ),
           ],
@@ -62,10 +70,14 @@ class RegisterButton extends StatelessWidget {
         ),
         child: TextButton(
           style: TextButton.styleFrom(
-            
             primary: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Register()),
+            );
+          },
           child: Text('REGISTER'),
         ),
       ),
@@ -94,7 +106,12 @@ class LoginButton extends StatelessWidget {
           style: TextButton.styleFrom(
             primary: Colors.pink.shade400,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Login()),
+            );
+          },
           child: Text('LOGIN'),
         ),
       ),

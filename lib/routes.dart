@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:san/screens/Home/home_product.dart';
-import 'package:san/screens/Splash_Screen/splash_screen.dart';
+import 'package:san/screens/Splash_Screen/index.dart';
 import 'package:san/screens/Profile/profile.dart';
 
 final Map<String, WidgetBuilder> routes = {

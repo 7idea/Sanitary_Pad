@@ -3,7 +3,7 @@ import 'package:san/components/default_button.dart';
 import 'package:san/routes.dart';
 import 'package:san/screens/Home/home_product.dart';
 import 'package:san/screens/Splash_Screen/splash_content.dart';
-import 'package:san/screens/Splash_Screen/splash_screen.dart';
+import 'package:san/screens/Splash_Screen/index.dart';
 import 'package:san/screens/Profile/profile.dart';
 
 class Body extends StatefulWidget {
@@ -17,15 +17,15 @@ class _BodyState extends State<Body> {
   final List<Map<String, String>> splashData = [
     {
       'text': 'welcome to delivery sanitary for woman! ',
-      'image': 'asset/images/theme.jpg',
+      'image': 'assets/images/theme.jpg',
     },
     {
       'text': 'Easy to shop ',
-      'image': 'asset/images/theme1.jpg',
+      'image': 'assets/images/theme1.jpg',
     },
     {
       'text': 'welcome to delivery sanitary for woman! ',
-      'image': 'asset/images/theme1.jpg',
+      'image': 'assets/images/theme1.jpg',
     }
   ];
 

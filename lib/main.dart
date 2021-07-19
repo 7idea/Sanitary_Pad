@@ -4,7 +4,7 @@ import 'package:san/routes.dart';
 import 'package:san/screens/Login/login.dart';
 import 'package:san/screens/LoginOrRegister/login_or_register.dart';
 import 'package:san/screens/Register/register.dart';
-import 'package:san/screens/Splash_Screen/splash_screen.dart';
+import 'package:san/screens/Splash_Screen/index.dart';
 
 // import 'package:san/screens/HomeScreens/product_card.dart';
 import 'dart:convert'; //json.decode
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: LoginOrRegister(),
       // home: (LineLogin()),
       // home:Profile(
       //   idTokenState: 'none',
