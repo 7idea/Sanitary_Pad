@@ -101,6 +101,7 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: 50,
       child: DecoratedBox(
         decoration: BoxDecoration(
           gradient: LinearGradient(

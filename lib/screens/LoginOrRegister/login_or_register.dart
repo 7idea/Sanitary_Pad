@@ -10,40 +10,42 @@ class LoginOrRegister extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height - 50,
         width: double.infinity,
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 250.0),
-            CircleAvatar(
-              backgroundImage: AssetImage('assets/icons/logo.jpeg'),
-              radius: 40.0,
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'FLUTTER',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25.0,
-                  color: Colors.grey.shade800),
-            ),
-            SizedBox(height: 300.0),
-            RegisterButton(),
-            SizedBox(height: 10.0),
-            LoginButton(),
-            SizedBox(height: 50.0),
-            TextButton(
-              style: TextButton.styleFrom(
-                primary: Colors.pink.shade400,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 65.0),
+          child: Column(
+            children: [
+              SizedBox(height: 250.0),
+              CircleAvatar(
+                backgroundImage: AssetImage('assets/icons/logo.jpeg'),
+                radius: 40.0,
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SplashScreen()),
-                );
-              },
-              child: Text('Skip for now'),
-            ),
-          ],
+              SizedBox(height: 10.0),
+              Text(
+                'FLUTTER',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25.0,
+                    color: Colors.grey.shade800),
+              ),
+              SizedBox(height: 250.0),
+              RegisterButton(),
+              SizedBox(height: 10.0),
+              LoginButton(),
+              SizedBox(height: 50.0),
+              TextButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.pink.shade400,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SplashScreen()),
+                  );
+                },
+                child: Text('Skip for now'),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -58,7 +60,8 @@ class RegisterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300.0,
+      width: double.infinity,
+      height: 50,
       child: DecoratedBox(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -93,7 +96,8 @@ class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300.0,
+      width: double.infinity,
+      height: 50,
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5.0),
