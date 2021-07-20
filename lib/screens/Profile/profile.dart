@@ -6,21 +6,25 @@ import 'package:san/components/menu.dart';
 class Profile extends StatelessWidget {
   const Profile({
     Key? key,
-    required this.name,
-    required this.phone,
-    required this.address,
-    required this.bankAccount,
+    required this.idTokenState,
+    required this.nameState,
+    required this.pictureState,
+    // required this.phone,
+    // required this.address,
+    // required this.bankAccount,
   });
   static final routeName = '/profile';
-  final String name;
-  final String phone;
-  final List<String> address;
-  final String bankAccount;
+  final String idTokenState;
+  final String nameState;
+  final String pictureState;
+  // final String phone;
+  // final List<String> address;
+  // final String bankAccount;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Menu(img: "none"),
+      appBar: Menu(img: pictureState),
       drawer: myDrawer,
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -47,15 +51,16 @@ class Profile extends StatelessWidget {
                           height: 15.0,
                         ),
                         CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg'),
+                          backgroundImage: NetworkImage(pictureState
+                              // 'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
+                              ),
                           radius: 50.0,
                         ),
                         SizedBox(
                           height: 10.0,
                         ),
                         Text(
-                          name,
+                          nameState,
                           style: TextStyle(fontSize: 22.0, color: Colors.white),
                         ),
                         SizedBox(
