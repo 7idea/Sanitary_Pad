@@ -25,21 +25,8 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.redAccent,
-      // leading: PopupMenuButton<String>(
-      //   icon: Icon(Icons.menu),
-      //   onSelected: handleClick,
-      //   itemBuilder: (BuildContext context) {
-      //     return {'Logout', 'Settings'}.map((String choice) {
-      //       return PopupMenuItem<String>(
-      //         value: choice,
-      //         child: Text(choice),
-      //       );
-      //     }).toList();
-      //   },
-      // ),
       title: Text(
         'My Profile',
-       
       ),
       actions: <Widget>[
         Container(
