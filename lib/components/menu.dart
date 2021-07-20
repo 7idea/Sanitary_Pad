@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:san/components/drawer.dart';
 
 class Menu extends StatefulWidget implements PreferredSizeWidget {
+  final String title;
   final String img;
-  const Menu({Key? key, required this.img}) : super(key: key);
+
+  const Menu({Key? key, required this.title, required this.img}) : super(key: key);
   @override
   Size get preferredSize => const Size.fromHeight(60);
 
@@ -25,21 +27,8 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.redAccent,
-      // leading: PopupMenuButton<String>(
-      //   icon: Icon(Icons.menu),
-      //   onSelected: handleClick,
-      //   itemBuilder: (BuildContext context) {
-      //     return {'Logout', 'Settings'}.map((String choice) {
-      //       return PopupMenuItem<String>(
-      //         value: choice,
-      //         child: Text(choice),
-      //       );
-      //     }).toList();
-      //   },
-      // ),
       title: Text(
-        'My Profile',
-       
+        widget.title,
       ),
       actions: <Widget>[
         Container(

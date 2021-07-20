@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:san/routes.dart';
+import 'package:san/screens/Login/line_login.dart';
 import 'package:san/screens/Login/login.dart';
 import 'package:san/screens/LoginOrRegister/login_or_register.dart';
+import 'package:san/screens/ProductDetail/product_detail.dart';
 import 'package:san/screens/Register/register.dart';
 import 'package:san/screens/Splash_Screen/index.dart';
 
@@ -59,7 +61,7 @@ class MyApp extends StatelessWidget {
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      home: LoginOrRegister(),
+      home: ProductDetail(),
       // home: (LineLogin()),
       // home:Profile(
       //   idTokenState: 'none',
@@ -91,17 +93,17 @@ class Desktop extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: Profile(
-      //   idTokenState: idToken,
-      //   nameState: 'none',
-      //   pictureState: 'none',
-      // ),
       home: Profile(
-        name: "none",
-        phone: "none",
-        address: ['none'],
-        bankAccount: "none",
+        idTokenState: idToken,
+        nameState: 'none',
+        pictureState: 'none',
       ),
+      // home: Profile(
+      //   name: "none",
+      //   phone: "none",
+      //   address: ['none'],
+      //   bankAccount: "none",
+      // ),
     );
   }
 }

@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:san/components/drawer.dart';
 import 'package:san/components/menu.dart';
+import 'package:san/screens/Profile/components/my_card.dart';
 // import 'package:jwt_decode/jwt_decode.dart';
 
 class Profile extends StatelessWidget {
   const Profile({
     Key? key,
-    required this.name,
-    required this.phone,
-    required this.address,
-    required this.bankAccount,
+    required this.idTokenState,
+    required this.nameState,
+    required this.pictureState,
+    // required this.phone,
+    // required this.address,
+    // required this.bankAccount,
   });
   static final routeName = '/profile';
-  final String name;
-  final String phone;
-  final List<String> address;
-  final String bankAccount;
+  final String idTokenState;
+  final String nameState;
+  final String pictureState;
+  // final String phone;
+  // final List<String> address;
+  // final String bankAccount;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Menu(img: "none"),
-      drawer: myDrawer,
       backgroundColor: Colors.white,
+      appBar: Menu(img: pictureState,title:'My Profile'),
+      drawer: myDrawer,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -47,15 +52,16 @@ class Profile extends StatelessWidget {
                           height: 15.0,
                         ),
                         CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg'),
+                          backgroundImage: NetworkImage(pictureState
+                              // 'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
+                              ),
                           radius: 50.0,
                         ),
                         SizedBox(
                           height: 10.0,
                         ),
                         Text(
-                          name,
+                          nameState,
                           style: TextStyle(fontSize: 22.0, color: Colors.white),
                         ),
                         SizedBox(
@@ -140,99 +146,6 @@ class Profile extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-// Container(
-//                         width: 300.0,
-//                         child: RaisedButton(
-//                           onPressed: () {},
-//                           shape: RoundedRectangleBorder(
-//                             borderRadius: BorderRadius.circular(
-//                               80.0,
-//                             ),
-//                           ),
-//                           elevation: 1,
-//                           padding: EdgeInsets.all(0.0),
-//                           child: Ink(
-//                             decoration: BoxDecoration(
-//                               gradient: LinearGradient(
-//                                 begin: Alignment.topCenter,
-//                                 end: Alignment.bottomCenter,
-//                                 colors: [
-//                                   Colors.redAccent,
-//                                   Colors.redAccent,
-//                                 ],
-//                               ),
-//                               borderRadius: BorderRadius.circular(30.0),
-//                             ),
-//                             child: Container(
-//                               constraints: BoxConstraints(
-//                                   maxWidth: 300.0, minHeight: 50.0),
-//                               alignment: Alignment.center,
-//                               child: Text(
-//                                 'Logout',
-//                                 style: TextStyle(
-//                                     color: Colors.white,
-//                                     fontSize: 24.0,
-//                                     letterSpacing: 2.0,
-//                                     fontWeight: FontWeight.w300),
-//                               ),
-//                             ),
-//                           ),
-//                         ),
-//                       ),
-
-class MyCard extends StatelessWidget {
-  const MyCard({
-    Key? key,
-    required this.title,
-    required this.text,
-  }) : super(key: key);
-
-  final String title;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
-      clipBehavior: Clip.antiAlias,
-      color: Colors.white,
-      elevation: 8.0,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 22.0, horizontal: 8.0),
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    title,
-                    style: TextStyle(
-                      color: Colors.redAccent,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Text(
-                    text,
-                    style: TextStyle(
-                        color: Colors.redAccent,
-                        fontSize: 22.0,
-                        fontWeight: FontWeight.w200),
-                  ),
-                ],
-              ),
-            ),
-          ],
         ),
       ),
     );
