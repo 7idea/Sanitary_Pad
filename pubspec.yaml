@@ -33,6 +33,7 @@ dependencies:
   jwt_decode: ^0.3.1
   http: ^0.13.3
   html: ^0.15.0
+  webview_flutter: ^2.0.10
 
 dev_dependencies:
   flutter_test:

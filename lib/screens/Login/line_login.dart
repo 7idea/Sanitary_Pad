@@ -54,17 +54,17 @@ class _LineLoginState extends State<LineLogin> {
   @override
   Widget build(BuildContext context) {
     if (name.isNotEmpty || picture.isNotEmpty) {
-      // return Profile(
-      //   idTokenState: 'none',
-      //   nameState: name,
-      //   pictureState: picture,
-      // );
       return Profile(
-        name: "none",
-        phone: "none",
-        address: ['none'],
-        bankAccount: "none",
+        idTokenState: 'none',
+        nameState: name,
+        pictureState: picture,
       );
+      // return Profile(
+      //   name: "none",
+      //   phone: "none",
+      //   address: ['none'],
+      //   bankAccount: "none",
+      // );
     } else {
       return Center(
         child: TextButton(

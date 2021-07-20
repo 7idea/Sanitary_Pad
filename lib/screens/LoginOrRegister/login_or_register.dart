@@ -8,43 +8,45 @@ class LoginOrRegister extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: MediaQuery.of(context).size.height - 50,
+       
         width: double.infinity,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 65.0),
-          child: Column(
-            children: [
-              SizedBox(height: 250.0),
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/icons/logo.jpeg'),
-                radius: 40.0,
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                'FLUTTER',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25.0,
-                    color: Colors.grey.shade800),
-              ),
-              SizedBox(height: 250.0),
-              RegisterButton(),
-              SizedBox(height: 10.0),
-              LoginButton(),
-              SizedBox(height: 50.0),
-              TextButton(
-                style: TextButton.styleFrom(
-                  primary: Colors.pink.shade400,
+        child: SingleChildScrollView(
+                  child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 65.0),
+            child: Column(
+              children: [
+                SizedBox(height: 150.0),
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/icons/logo.jpeg'),
+                  radius: 40.0,
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SplashScreen()),
-                  );
-                },
-                child: Text('Skip for now'),
-              ),
-            ],
+                SizedBox(height: 10.0),
+                Text(
+                  'FLUTTER',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25.0,
+                      color: Colors.grey.shade800),
+                ),
+                SizedBox(height: 200.0),
+                RegisterButton(),
+                SizedBox(height: 10.0),
+                LoginButton(),
+                SizedBox(height: 50.0),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    primary: Colors.pink.shade400,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SplashScreen()),
+                    );
+                  },
+                  child: Text('Skip for now'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
