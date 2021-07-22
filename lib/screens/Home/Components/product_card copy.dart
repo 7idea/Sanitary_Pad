@@ -3,6 +3,9 @@ import 'package:san/models/product.dart';
 import 'package:san/ui_config/size_config.dart';
 
 class ProductCard extends StatelessWidget {
+  // final String image;
+  // final num price;
+  // final String title;
   final Product product;
 
   ProductCard({required this.product});
@@ -26,7 +29,7 @@ class ProductCard extends StatelessWidget {
                         image: AssetImage(product.images[0]), fit: BoxFit.fill),
                     borderRadius: BorderRadius.circular(7),
                   ),
-                  child: Image.asset(product.images[0]),
+                  // child: Image.asset(product.images[0]),
                 ),
               ),
             ),
@@ -53,15 +56,15 @@ class ProductCard extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     child: Text(
                       "Price ฿${product.price}",
-                      style: TextStyle(color: Colors.red, fontSize: 20),
+                      style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     width: 150,
                     child: Text(
-                      product.description.toString(),
-                      style: TextStyle(color: Colors.black),
+                      '${product.description}',
+                      style: TextStyle(color: Colors.white),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),

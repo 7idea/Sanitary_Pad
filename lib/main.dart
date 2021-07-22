@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:san/routes.dart';
+import 'package:san/screens/Home/product_list.dart';
 import 'package:san/screens/Login/line_login.dart';
 import 'package:san/screens/Login/login.dart';
 import 'package:san/screens/LoginOrRegister/login_or_register.dart';
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      home: ProductDetail(),
+      home: ProductList(),
       // home: (LineLogin()),
       // home:Profile(
       //   idTokenState: 'none',
