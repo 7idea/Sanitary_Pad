@@ -28,7 +28,9 @@ class _MenuState extends State<Menu> {
     return AppBar(
       backgroundColor: Colors.redAccent,
       title: Text(
-        widget.title,
+
+        'My Profile',
+
       ),
       actions: <Widget>[
         Container(

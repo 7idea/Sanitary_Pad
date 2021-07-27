@@ -25,9 +25,13 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: Menu(img: pictureState,title:'My Profile'),
+
+      appBar: Menu(img: pictureState),
       drawer: myDrawer,
+
+      backgroundColor: Colors.white,
+
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -151,3 +155,5 @@ class Profile extends StatelessWidget {
     );
   }
 }
+
+

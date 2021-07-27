@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 import 'package:san/Store/MyStore.dart';
 import 'package:san/screens/Basket/basket_screen.dart';
 
+import 'package:san/components/drawer.dart';
+import 'package:san/components/menu.dart';
+
+
 class ProductDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     var store = Provider.of<MyStore>(context);
     return Scaffold(
       appBar: AppBar(
@@ -62,6 +68,7 @@ class ProductDetail extends StatelessWidget {
           // TextButton(onPressed: () {}, child: Text('เพิ่มลงรถเข็น'))
         ],
       ),
+
     );
   }
 }
