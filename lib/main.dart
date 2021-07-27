@@ -12,11 +12,11 @@ import 'package:san/screens/Home/product_list.dart';
 // import 'package:san/screens/Register/register.dart';
 // import 'package:provider/provider.dart';
 
-
 import 'package:san/routes.dart';
 import 'package:san/screens/Login/line_login.dart';
 import 'package:san/screens/Login/login.dart';
 import 'package:san/screens/LoginOrRegister/login_or_register.dart';
+import 'package:san/screens/Profile/Address/select_province.dart';
 import 'package:san/screens/Register/register.dart';
 
 import 'package:san/screens/Splash_Screen/index.dart';
@@ -40,12 +40,21 @@ void main() async {
     var accessToken = await getAccessTokenForWeb(code);
     runApp(Desktop(accessToken: accessToken));
   } else {
-    runApp(ChangeNotifierProvider(
-      create: (context) {
-        return MyStore();
-      },
-      child: MyApp(),
-    ));
+    runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider<MyStore>(create: (context) {
+            return MyStore();
+          }),
+          ChangeNotifierProvider<ProvinceData>(
+            create: (context) {
+              return ProvinceData();
+            },
+          )
+        ],
+        child: MyApp(),
+      ),
+    );
   }
 }
 
@@ -81,7 +90,7 @@ class MyApp extends StatelessWidget {
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      home: AddAddress(),
+      home: SelectProvince(),
       // home: ShowProduct(),
       // home: ProductListPage(),
       // home:Profile(

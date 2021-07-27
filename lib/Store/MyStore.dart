@@ -192,5 +192,7 @@ class ProvinceData extends ChangeNotifier {
       Province(id: 76, name: 'อุทัยธานี/ Uthai Thani'),
       Province(id: 77, name: 'อุบลราชธานี/ Ubon Ratchathani'),
     ];
+    notifyListeners();
   }
+  List<Province> get province => _province;
 }
