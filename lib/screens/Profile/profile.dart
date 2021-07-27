@@ -26,7 +26,7 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: Menu(img: pictureState),
+      appBar: Menu(img: pictureState,title:'ddddd'),
       drawer: myDrawer,
 
       backgroundColor: Colors.white,
