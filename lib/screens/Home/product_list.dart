@@ -1,38 +1,43 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:san/components/drawer.dart';
-import 'package:san/models/product.dart';
-import 'package:san/screens/Home/Components/product_card.dart';
+import 'package:provider/provider.dart';
+import 'package:san/Store/MyStore.dart';
+import 'package:san/screens/ProductDetail/product_detail.dart';
 
-class ProductList extends StatelessWidget {
-  const ProductList({Key? key}) : super(key: key);
-
+class ProductListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var store = Provider.of<MyStore>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('รายการสินค้า'),
+        title: Text('Product List Page'),
       ),
-      drawer: myDrawer,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Text(
-              'Most pupular',
-              style: TextStyle(fontSize: 30, color: Colors.white70),
-            ),
-            Column(
-              children: [
-                ...List.generate(
-                  demoProduct.length,
-                  (index) => ProductCard(
-                    product: demoProduct[index],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+      body: GridView.builder(
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        itemCount: store.products.length,
+        itemBuilder: (context, i) {
+          return Column(
+            children: [
+              Container(
+                width: 150,
+                height: 150,
+                child: Hero(
+                    tag: store.products[i].id,
+                    child: Image.asset(store.products[i].images[0])),
+              ),
+              TextButton(
+                child: Text(store.products[i].title),
+                onPressed: () {
+                  store.selectedProduct(i);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProductDetail()),
+                  );
+                },
+              ),
+            ],
+          );
+        },
       ),
     );
   }

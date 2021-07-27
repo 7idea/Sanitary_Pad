@@ -3,6 +3,9 @@ import 'package:san/models/product.dart';
 import 'package:san/ui_config/size_config.dart';
 
 class ProductCard extends StatelessWidget {
+  // final String image;
+  // final num price;
+  // final String title;
   final Product product;
 
   ProductCard({required this.product});
@@ -10,23 +13,26 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SizedBox(
-              width: getProportionateScreenWidth(160),
-              child: AspectRatio(
-                aspectRatio: 1.02,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(product.images[0]), fit: BoxFit.fill),
-                    borderRadius: BorderRadius.circular(7),
+            SingleChildScrollView(
+                          child: SizedBox(
+                width: getProportionateScreenWidth(160),
+                child: AspectRatio(
+                  aspectRatio: 1.02,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(product.images[0]), fit: BoxFit.fill),
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                    // child: Image.asset(product.images[0]),
                   ),
-                  child: Image.asset(product.images[0]),
                 ),
               ),
             ),
@@ -53,14 +59,14 @@ class ProductCard extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     child: Text(
                       "Price ฿${product.price}",
-                      style: TextStyle(color: Colors.red, fontSize: 20),
+                      style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     width: 150,
                     child: Text(
-                      product.description.toString(),
+                      '${product.description}',
                       style: TextStyle(color: Colors.black),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,

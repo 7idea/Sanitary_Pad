@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:san/routes.dart';
+import 'package:provider/provider.dart';
+import 'package:san/Store/MyStore.dart';
+// import 'package:san/routes.dart';
 import 'package:san/screens/Home/product_list.dart';
-import 'package:san/screens/Login/line_login.dart';
-import 'package:san/screens/Login/login.dart';
-import 'package:san/screens/LoginOrRegister/login_or_register.dart';
-import 'package:san/screens/ProductDetail/product_detail.dart';
-import 'package:san/screens/Register/register.dart';
+// import 'package:san/screens/Login/line_login.dart';
+// import 'package:san/screens/Login/login.dart';
+// import 'package:san/screens/LoginOrRegister/login_or_register.dart';
+// import 'package:san/screens/ProductDetail/product_detail.dart';
+// import 'package:san/screens/Register/register.dart';
+// import 'package:provider/provider.dart';
+
 import 'package:san/screens/Splash_Screen/index.dart';
 
 // import 'package:san/screens/HomeScreens/product_card.dart';
@@ -14,6 +18,8 @@ import 'dart:convert'; //json.decode
 import 'package:flutter_line_sdk/flutter_line_sdk.dart';
 // import 'package:san/screens/line_login.dart';
 import 'package:san/screens/Profile/profile.dart';
+
+import 'screens/Profile/Address/add_address.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +32,12 @@ void main() async {
     var accessToken = await getAccessTokenForWeb(code);
     runApp(Desktop(accessToken: accessToken));
   } else {
-    runApp(MyApp());
+    runApp(ChangeNotifierProvider(
+      create: (context) {
+        return MyStore();
+      },
+      child: MyApp(),
+    ));
   }
 }
 
@@ -58,12 +69,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
           visualDensity: VisualDensity.adaptivePlatformDensity),
-          
+
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      home: ProductList(),
-      // home: (LineLogin()),
+      home: AddAddress(),
+      // home: ShowProduct(),
+      // home: ProductListPage(),
       // home:Profile(
       //   idTokenState: 'none',
       //   nameState: 'none',

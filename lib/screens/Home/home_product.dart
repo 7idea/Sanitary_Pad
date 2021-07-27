@@ -18,7 +18,7 @@ class HomeProduct extends StatelessWidget {
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
-              children: [SearchBox(), ProductList()],
+              // children: [SearchBox(), ProductList()],
             ),
           ),
         ),

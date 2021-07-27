@@ -21,16 +21,16 @@ class ProductList extends StatelessWidget {
               'Most pupular',
               style: TextStyle(fontSize: 30, color: Colors.white70),
             ),
-            Column(
-              children: [
-                ...List.generate(
-                  demoProduct.length,
-                  (index) => ProductCard(
-                    product: demoProduct[index],
-                  ),
-                ),
-              ],
-            ),
+            // Column(
+            //   children: [
+            //     ...List.generate(
+            //       demoProduct.length,
+            //       (index) => ProductCard(
+            //         product: demoProduct[index],
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),
