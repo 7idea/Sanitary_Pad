@@ -28,6 +28,9 @@ import 'package:flutter_line_sdk/flutter_line_sdk.dart';
 // import 'package:san/screens/line_login.dart';
 import 'package:san/screens/Profile/profile.dart';
 
+import 'Store/AmphoeStore.dart';
+import 'Store/ProvinceStore.dart';
+import 'Store/TambonStore.dart';
 import 'screens/Profile/Address/add_address.dart';
 import 'screens/Profile/Address/select_tambon.dart';
 
@@ -96,7 +99,7 @@ class MyApp extends StatelessWidget {
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      home: SelectAmphoe(),
+      home: SelectProvince(),
       // home: ShowProduct(),
       // home: ProductListPage(),
       // home:Profile(

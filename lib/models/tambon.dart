@@ -1,7 +1,7 @@
 class Tambon {
   final int id;
   final String name;
-  final String province_id;
+  final int province_id;
   final String amphoe_id;
   final String zipcode;
 

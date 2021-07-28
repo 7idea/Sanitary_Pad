@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/MyStore.dart';
+import 'package:san/Store/ProvinceStore.dart';
+import 'package:san/Store/TambonStore.dart';
+import 'package:san/models/tambon.dart';
 
 class SelectTambon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var store = Provider.of<TambonData>(context);
+    var _tambon = Provider.of<TambonData>(context);
+    var province = Provider.of<ProvinceData>(context);
+
+    var tambon = [];
+    for (int i = 0; i < _tambon.tambon.length - 1; i++) {
+      if (_tambon.tambon[i].province_id == province.province_id) {
+        tambon.add(_tambon.tambon[i]);
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -15,15 +26,14 @@ class SelectTambon extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: ListView.builder(
-        itemCount: store.tambon.length,
+        // itemCount: _tambon.tambon.length,
+        itemCount:tambon.length,
         itemBuilder: (context, i) {
           return Column(
             children: [
               SizedBox(height: 5),
               InkWell(
-                onTap: () {
-                  
-                },
+                onTap: () {},
                 child: Row(
                   children: [
                     Expanded(
@@ -36,7 +46,8 @@ class SelectTambon extends StatelessWidget {
                                   width: 0.1, color: Colors.black38)),
                         ),
                         child: Text(
-                          store.tambon[i].name,
+                          // _tambon.tambon[i].name,
+                          tambon[i].name,
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black87,
