@@ -44389,7 +44389,9 @@ class TambonData extends ChangeNotifier {
           province_id: "96",
           amphoe_id: "9613"),
     ];
+    notifyListeners();
   }
+  List<Tambon> get tambon => _tambon;
 }
 
 class AmphoeData extends ChangeNotifier {
@@ -48576,5 +48578,7 @@ class AmphoeData extends ChangeNotifier {
       Amphoe(id: 9612, name: "จะแนะ/ Chanae", province_id: 96),
       Amphoe(id: 9613, name: "เจาะไอร้อง/ Cho-airong", province_id: 96),
     ];
+    notifyListeners();
   }
+  List<Amphoe> get amphoe => _amphoe;
 }
