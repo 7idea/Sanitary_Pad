@@ -20,27 +20,32 @@ class SelectProvince extends StatelessWidget {
           return Column(
             children: [
               SizedBox(height: 5),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(10.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border(
-                            bottom:
-                                BorderSide(width: 0.1, color: Colors.black38)),
-                      ),
-                      child: Text(
-                        store.province[i].name,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black87,
+              InkWell(
+                onTap: () {
+                  
+                },
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.all(10.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border(
+                              bottom: BorderSide(
+                                  width: 0.1, color: Colors.black38)),
+                        ),
+                        child: Text(
+                          store.province[i].name,
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black87,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           );
