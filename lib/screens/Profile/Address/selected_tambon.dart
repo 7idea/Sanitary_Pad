@@ -1,46 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:san/Store/AmphoeStore.dart';
-import 'package:san/Store/ProvinceStore.dart';
-import 'package:san/screens/Profile/Address/select_tambon.dart';
+import 'package:san/Store/TambonStore.dart';
 
-class SelectAmphoe extends StatelessWidget {
+class SelectTambon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var _tambon = Provider.of<TambonData>(context);
     var _amphoe = Provider.of<AmphoeData>(context);
-    var _province = Provider.of<ProvinceData>(context);
 
-    var amphoe = [];
-    for (int i = 0; i < _amphoe.amphoe.length - 1; i++) {
-      if (_amphoe.amphoe[i].province_id == _province.provinceId) {
-        amphoe.add(_amphoe.amphoe[i]);
+    var zipcode = [];
+    for (int i = 0; i < _tambon.tambon.length - 1; i++) {
+      if (_tambon.tambon[i].amphoeId == _amphoe.amphoeId) {
+       
+        zipcode.add(_tambon.tambon[i].zipcode[0].toString());
       }
     }
-    amphoe.sort((a, b) => a.name.compareTo(b.name));
+
+    // remove duplicate
+    zipcode = zipcode.toSet().toList();
+
+    //remove null value
+    if (zipcode.indexOf('null') != -1) {
+      zipcode.removeAt(zipcode.indexOf('null'));
+    }
+
+    // sort
+    zipcode.sort((a, b) => a.compareTo(b));
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'อำเภอ',
+          'รหัสไปรษณี',
           style: TextStyle(color: Colors.black),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.chevron_left),
+          color: Colors.black,
+          iconSize: 40,
+          onPressed: () => Navigator.of(context).pop(),
         ),
         backgroundColor: Colors.white,
       ),
       body: ListView.builder(
-        // itemCount: _amphoe.amphoe.length,
-        itemCount: amphoe.length,
+        itemCount: zipcode.length,
         itemBuilder: (context, i) {
           return Column(
             children: [
               SizedBox(height: 5),
               InkWell(
-                onTap: () {
-                  _amphoe.getActiveAmphoe(amphoe[i].id);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SelectTambon()),
-                  );
-                },
+                onTap: () {},
                 child: Row(
                   children: [
                     Expanded(
@@ -53,8 +62,7 @@ class SelectAmphoe extends StatelessWidget {
                                   width: 0.1, color: Colors.black38)),
                         ),
                         child: Text(
-                          // _amphoe.amphoe[i].name,
-                          amphoe[i].name,
+                          zipcode[i],
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black87,

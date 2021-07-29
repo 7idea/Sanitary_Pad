@@ -81,7 +81,7 @@ class _BodyState extends State<Body> {
                       style: TextStyle(fontSize: 30),
                     ),
                     press: () {
-                      print('55555');
+                      
                       Navigator.pushNamed(context, Profile.routeName);
                     },
                   ),

@@ -16,8 +16,8 @@ import 'package:san/routes.dart';
 import 'package:san/screens/Login/line_login.dart';
 import 'package:san/screens/Login/login.dart';
 import 'package:san/screens/LoginOrRegister/login_or_register.dart';
-import 'package:san/screens/Profile/Address/select_amphoe.dart';
-import 'package:san/screens/Profile/Address/select_province.dart';
+import 'package:san/screens/Profile/Address/selected_amphoe.dart';
+import 'package:san/screens/Profile/Address/selected_province.dart';
 import 'package:san/screens/Register/register.dart';
 
 import 'package:san/screens/Splash_Screen/index.dart';
@@ -31,8 +31,9 @@ import 'package:san/screens/Profile/profile.dart';
 import 'Store/AmphoeStore.dart';
 import 'Store/ProvinceStore.dart';
 import 'Store/TambonStore.dart';
+import 'screens/Checkout/checkout.dart';
 import 'screens/Profile/Address/add_address.dart';
-import 'screens/Profile/Address/select_tambon.dart';
+import 'screens/Profile/Address/selected_tambon.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -99,7 +100,7 @@ class MyApp extends StatelessWidget {
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      home: SelectProvince(),
+      home: AddAddress(),
       // home: ShowProduct(),
       // home: ProductListPage(),
       // home:Profile(

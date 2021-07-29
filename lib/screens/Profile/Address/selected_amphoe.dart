@@ -1,39 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:san/Store/AmphoeStore.dart';
 import 'package:san/Store/ProvinceStore.dart';
-import 'package:san/screens/Profile/Address/select_amphoe.dart';
+import 'package:san/screens/Profile/Address/selected_tambon.dart';
 
-class SelectProvince extends StatelessWidget {
+class SelectAmphoe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var _amphoe = Provider.of<AmphoeData>(context);
     var _province = Provider.of<ProvinceData>(context);
-    var province = [];
-    for (int i = 0; i < _province.province.length; i++) {
-      province.add(_province.province[i]);
-    }
 
-    province.sort((a, b) => a.name.compareTo(b.name));
+    var amphoe = [];
+    for (int i = 0; i < _amphoe.amphoe.length - 1; i++) {
+      if (_amphoe.amphoe[i].province_id == _province.provinceId) {
+        amphoe.add(_amphoe.amphoe[i]);
+      }
+    }
+    amphoe.sort((a, b) => a.name.compareTo(b.name));
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'จังหวัด',
+          'อำเภอ',
           style: TextStyle(color: Colors.black),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.chevron_left),
+          color: Colors.black,
+          iconSize: 40,
+          onPressed: () => Navigator.of(context).pop(),
         ),
         backgroundColor: Colors.white,
       ),
       body: ListView.builder(
-        // itemCount: province.province.length,
-        itemCount: province.length,
+        itemCount: amphoe.length,
         itemBuilder: (context, i) {
           return Column(
             children: [
               SizedBox(height: 5),
               InkWell(
                 onTap: () {
-                  _province.getActiveProvince(province[i].id);
+                  _amphoe.getActiveAmphoe(amphoe[i].id);
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SelectAmphoe()),
+                    MaterialPageRoute(builder: (context) => SelectTambon()),
                   );
                 },
                 child: Row(
@@ -48,8 +58,7 @@ class SelectProvince extends StatelessWidget {
                                   width: 0.1, color: Colors.black38)),
                         ),
                         child: Text(
-                          // province.province[i].name,
-                          province[i].name,
+                          amphoe[i].name,
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black87,
