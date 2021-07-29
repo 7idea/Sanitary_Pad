@@ -3,6 +3,7 @@ import 'package:san/models/amphoe.dart';
 
 class AmphoeData extends ChangeNotifier {
   List<Amphoe> _amphoe = [];
+  late int _amphoe_id;
 
   AmphoeData() {
     _amphoe = [
@@ -4187,5 +4188,11 @@ class AmphoeData extends ChangeNotifier {
     ];
     notifyListeners();
   }
+  getActiveAmphoe(int i) {
+    _amphoe_id = i;
+    print('aaaaa $i');
+  }
+
   List<Amphoe> get amphoe => _amphoe;
+  get amphoeId => _amphoe_id;
 }

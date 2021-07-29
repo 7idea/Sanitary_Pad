@@ -311,9 +311,8 @@ class ProvinceData extends ChangeNotifier {
   }
   getActiveProvince(int i) {
     _province_id = i;
-    print('ddddddd $i');
   }
 
   List<Province> get province => _province;
-  get province_id => _province_id;
+  get provinceId => _province_id;
 }

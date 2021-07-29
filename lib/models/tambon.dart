@@ -2,8 +2,8 @@ class Tambon {
   final int id;
   final String name;
   final int province_id;
-  final String amphoe_id;
-  final String zipcode;
+  final int amphoe_id;
+  final List<String> zipcode;
 
   Tambon({
     required this.id,

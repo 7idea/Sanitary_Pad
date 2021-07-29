@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:san/Store/ProvinceStore.dart';
 import 'package:san/screens/Profile/Address/select_amphoe.dart';
-import 'package:san/screens/Profile/Address/select_tambon.dart';
 
 class SelectProvince extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var province = Provider.of<ProvinceData>(context);
+    var _province = Provider.of<ProvinceData>(context);
+    var province = [];
+    for (int i = 0; i < _province.province.length; i++) {
+      province.add(_province.province[i]);
+    }
+
+    province.sort((a, b) => a.name.compareTo(b.name));
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -17,14 +22,15 @@ class SelectProvince extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: ListView.builder(
-        itemCount: province.province.length,
+        // itemCount: province.province.length,
+        itemCount: province.length,
         itemBuilder: (context, i) {
           return Column(
             children: [
               SizedBox(height: 5),
               InkWell(
                 onTap: () {
-                  province.getActiveProvince(province.province[i].id);
+                  _province.getActiveProvince(province[i].id);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SelectAmphoe()),
@@ -42,7 +48,8 @@ class SelectProvince extends StatelessWidget {
                                   width: 0.1, color: Colors.black38)),
                         ),
                         child: Text(
-                          province.province[i].name,
+                          // province.province[i].name,
+                          province[i].name,
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black87,

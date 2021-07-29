@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:san/Store/AmphoeStore.dart';
 import 'package:san/Store/ProvinceStore.dart';
+import 'package:san/screens/Profile/Address/select_tambon.dart';
 
 class SelectAmphoe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _amphoe = Provider.of<AmphoeData>(context);
-    var province = Provider.of<ProvinceData>(context);
+    var _province = Provider.of<ProvinceData>(context);
 
     var amphoe = [];
     for (int i = 0; i < _amphoe.amphoe.length - 1; i++) {
-      if (_amphoe.amphoe[i].province_id == province.province_id) {
+      if (_amphoe.amphoe[i].province_id == _province.provinceId) {
         amphoe.add(_amphoe.amphoe[i]);
       }
     }
@@ -33,7 +34,13 @@ class SelectAmphoe extends StatelessWidget {
             children: [
               SizedBox(height: 5),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _amphoe.getActiveAmphoe(amphoe[i].id);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SelectTambon()),
+                  );
+                },
                 child: Row(
                   children: [
                     Expanded(

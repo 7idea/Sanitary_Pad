@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:san/models/amphoe.dart';
 import 'package:san/models/product.dart';
-import 'package:san/models/province.dart';
-import 'package:san/models/tambon.dart';
 
 class MyStore extends ChangeNotifier {
   List<Product> _products = [];
@@ -110,6 +107,3 @@ class MyStore extends ChangeNotifier {
     return total;
   }
 }
-
-
-
