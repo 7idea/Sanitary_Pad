@@ -13,7 +13,8 @@ class Checkout extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => SelectProvince()),
+              // MaterialPageRoute(builder: (context) => SelectProvince(title: 'เลือกจังหวัด',)),
+              MaterialPageRoute(builder: (context) => Text('ddd')),
             );
           },
           child: Container(

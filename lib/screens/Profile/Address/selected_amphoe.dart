@@ -40,6 +40,7 @@ class SelectAmphoe extends StatelessWidget {
               SizedBox(height: 5),
               InkWell(
                 onTap: () {
+                  _amphoe.choose(amphoe[i].name);
                   _amphoe.getActiveAmphoe(amphoe[i].id);
                   Navigator.push(
                     context,

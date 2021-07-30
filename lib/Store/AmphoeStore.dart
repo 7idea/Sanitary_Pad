@@ -4,13 +4,19 @@ import 'package:san/models/amphoe.dart';
 class AmphoeData extends ChangeNotifier {
   List<Amphoe> _amphoe = [];
   late int _amphoe_id;
+  String _title = 'เลือกรหัสไปรษณีย์';
 
   getActiveAmphoe(int i) {
     _amphoe_id = i;
   }
 
+  choose(String choose) {
+    _title = choose;
+  }
+
   List<Amphoe> get amphoe => _amphoe;
   get amphoeId => _amphoe_id;
+  get title => _title;
 
   AmphoeData() {
     _amphoe = [

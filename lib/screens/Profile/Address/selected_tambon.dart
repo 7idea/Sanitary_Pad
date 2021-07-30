@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:san/Store/AmphoeStore.dart';
 import 'package:san/Store/TambonStore.dart';
+import 'package:san/screens/Profile/Address/add_address.dart';
+import 'package:san/screens/Profile/Address/selected_province.dart';
 
 class SelectTambon extends StatelessWidget {
   @override
@@ -49,7 +51,13 @@ class SelectTambon extends StatelessWidget {
             children: [
               SizedBox(height: 5),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _tambon.choose(zipcode[i].toString());
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AddAddress()),
+                  );
+                },
                 child: Row(
                   children: [
                     Expanded(

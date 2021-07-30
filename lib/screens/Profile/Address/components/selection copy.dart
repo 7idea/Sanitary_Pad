@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:san/screens/Profile/Address/selected_amphoe.dart';
 import 'package:san/screens/Profile/Address/selected_province.dart';
+import 'package:san/screens/Profile/Address/selected_tambon.dart';
 
-class SelectionAmphoe extends StatelessWidget {
-  
+class Selection extends StatelessWidget {
+  final String title;
+  final String option;
+
+  Selection({required this.title, required this.option});
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SelectProvince()),
+          MaterialPageRoute(builder: (context) {
+            if (option == 'จังหวัด') {
+              //  return SelectProvince(title:'เลือกจังหวัด');
+              return Text('dddd');
+            } else if (option == 'เขต/อำเภอ') {
+              return SelectAmphoe();
+            } else {
+              return SelectTambon();
+            }
+          }),
         );
       },
       child: Container(
@@ -25,8 +40,8 @@ class SelectionAmphoe extends StatelessWidget {
           ),
           color: Colors.white,
         ),
-        child: const Text(
-          'เลือกจังหวัด',
+        child: Text(
+          title,
           style: TextStyle(color: Colors.grey, fontSize: 16.0),
         ),
       ),

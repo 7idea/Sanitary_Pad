@@ -4,6 +4,7 @@ import 'package:san/Store/ProvinceStore.dart';
 import 'package:san/screens/Profile/Address/selected_amphoe.dart';
 
 class SelectProvince extends StatelessWidget {
+  String title = 'จังหวัด';
   @override
   Widget build(BuildContext context) {
     var _province = Provider.of<ProvinceData>(context);
@@ -11,12 +12,11 @@ class SelectProvince extends StatelessWidget {
     for (int i = 0; i < _province.province.length; i++) {
       province.add(_province.province[i]);
     }
-
     province.sort((a, b) => a.name.compareTo(b.name));
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'จังหวัด',
+          title,
           style: TextStyle(color: Colors.black),
         ),
         leading: IconButton(
@@ -36,6 +36,7 @@ class SelectProvince extends StatelessWidget {
               InkWell(
                 onTap: () {
                   _province.getActiveProvince(province[i].id);
+                  _province.choose(province[i].name);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SelectAmphoe()),
@@ -53,7 +54,6 @@ class SelectProvince extends StatelessWidget {
                                   width: 0.1, color: Colors.black38)),
                         ),
                         child: Text(
-                          // province.province[i].name,
                           province[i].name,
                           style: TextStyle(
                             fontSize: 16,
