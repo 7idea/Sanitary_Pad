@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:san/models/tambon.dart';
-import 'package:san/models/province.dart';
 
 class TambonData extends ChangeNotifier {
   List<Tambon> _tambon = [];
@@ -10,6 +9,7 @@ class TambonData extends ChangeNotifier {
     _title = choose;
   }
 
+  List<Tambon> get tambon => _tambon;
   get title => _title;
 
   TambonData() {
@@ -44202,5 +44202,5 @@ class TambonData extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<Tambon> get tambon => _tambon;
+  
 }

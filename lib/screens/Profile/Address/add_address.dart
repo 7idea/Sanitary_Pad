@@ -13,6 +13,8 @@ class AddAddress extends StatelessWidget {
     var _province = Provider.of<ProvinceData>(context);
     var _amphoe = Provider.of<AmphoeData>(context);
     var _tambon = Provider.of<TambonData>(context);
+    Map<String, dynamic> dataAddress = {};
+
     print('object ${_province.title}');
     return Scaffold(
       appBar: AppBar(title: Text('เพิ่มที่อยู่')),
@@ -24,12 +26,21 @@ class AddAddress extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 10.0),
-                inputFile(label: "ชื่อ - นามสกุล"),
-                inputFile(label: "ที่อยู่"),
+                InputField(
+                  label: "ชื่อ - นามสกุล",
+                  obscureText: false,
+                ),
+                InputField(
+                  label: "ที่อยู่",
+                  obscureText: false,
+                ),
                 Selection(title: _province.title),
                 Selection(title: _amphoe.title),
                 Selection(title: _tambon.title),
-                inputFile(label: "หมายเลขโทรศัพท์"),
+                InputField(
+                  label: "หมายเลขโทรศัพท์",
+                  obscureText: false,
+                ),
                 SizedBox(height: 100.0),
                 LoginButton(),
                 SizedBox(height: 30.0),
