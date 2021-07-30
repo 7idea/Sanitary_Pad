@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:san/screens/Profile/Address/selected_province.dart';
 
 class Checkout extends StatelessWidget {
   @override

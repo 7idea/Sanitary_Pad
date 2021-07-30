@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:san/screens/Profile/Address/selected_amphoe.dart';
-import 'package:san/screens/Profile/Address/selected_province.dart';
-import 'package:san/screens/Profile/Address/selected_tambon.dart';
+import 'package:san/screens/Profile/Address/select_province.dart';
 
 class Selection extends StatelessWidget {
   final String title;

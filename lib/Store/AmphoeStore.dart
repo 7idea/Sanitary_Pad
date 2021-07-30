@@ -6,18 +6,6 @@ class AmphoeData extends ChangeNotifier {
   late int _amphoe_id;
   String _title = 'เลือกรหัสไปรษณีย์';
 
-  getActiveAmphoe(int i) {
-    _amphoe_id = i;
-  }
-
-  choose(String choose) {
-    _title = choose;
-  }
-
-  List<Amphoe> get amphoe => _amphoe;
-  get amphoeId => _amphoe_id;
-  get title => _title;
-
   AmphoeData() {
     _amphoe = [
       Amphoe(
@@ -4201,4 +4189,11 @@ class AmphoeData extends ChangeNotifier {
     ];
     notifyListeners();
   }
+  getActiveAmphoe(int i) {
+    _amphoe_id = i;
+    print('aaaaa $i');
+  }
+
+  List<Amphoe> get amphoe => _amphoe;
+  get amphoeId => _amphoe_id;
 }
