@@ -17,15 +17,6 @@ class SelectTambon extends StatelessWidget {
         zipcode.add(_tambon.tambon[i].zipcode[0].toString());
       }
     }
-
-    print(zipcode.length);
-    // for (int i = 0; i < zipcode.length - 1; i++) {
-    // if(zipcode[i].zipcode[0] != null){
-
-    // }
-    //   print(zipcode[i].zipcode[0]);
-    // }
-
     // remove duplicate
     zipcode = zipcode.toSet().toList();
 
@@ -46,14 +37,19 @@ class SelectTambon extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: ListView.builder(
-        // itemCount: _tambon.tambon.length,
         itemCount: zipcode.length,
         itemBuilder: (context, i) {
           return Column(
             children: [
               SizedBox(height: 5),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _tambon.choose(zipcode[i]);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AddAddress()),
+                  );
+                },
                 child: Row(
                   children: [
                     Expanded(
@@ -66,7 +62,6 @@ class SelectTambon extends StatelessWidget {
                                   width: 0.1, color: Colors.black38)),
                         ),
                         child: Text(
-                          // _tambon.tambon[i].name,
                           zipcode[i],
                           style: TextStyle(
                             fontSize: 16,
