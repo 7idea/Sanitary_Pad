@@ -1,47 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/ProvinceStore.dart';
-import 'package:san/screens/Profile/Address/selected_amphoe.dart';
+import 'package:san/Store/AmphoeStore.dart';
+import 'package:san/Store/TambonStore.dart';
+import 'package:san/screens/Profile/Address/add_address.dart';
 
-class SelectProvince extends StatelessWidget {
-  String title = 'จังหวัด';
+class SelectTambon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var _province = Provider.of<ProvinceData>(context);
-    var province = [];
-    for (int i = 0; i < _province.province.length; i++) {
-      province.add(_province.province[i]);
+    var _tambon = Provider.of<TambonData>(context);
+    var _amphoe = Provider.of<AmphoeData>(context);
+
+    var zipcode = [];
+    for (int i = 0; i < _tambon.tambon.length - 1; i++) {
+      if (_tambon.tambon[i].amphoe_id == _amphoe.amphoeId) {
+        print('pppppppppppp');
+        zipcode.add(_tambon.tambon[i].zipcode[0].toString());
+      }
     }
-    province.sort((a, b) => a.name.compareTo(b.name));
+
+    print(zipcode.length);
+    // for (int i = 0; i < zipcode.length - 1; i++) {
+    // if(zipcode[i].zipcode[0] != null){
+
+    // }
+    //   print(zipcode[i].zipcode[0]);
+    // }
+
+    // remove duplicate
+    zipcode = zipcode.toSet().toList();
+
+    //remove null value
+    if (zipcode.indexOf('null') != -1) {
+      zipcode.removeAt(zipcode.indexOf('null'));
+    }
+
+    // sort
+    zipcode.sort((a, b) => a.compareTo(b));
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          title,
+          'รหัสไปรษณี',
           style: TextStyle(color: Colors.black),
-        ),
-        leading: IconButton(
-          icon: Icon(Icons.chevron_left),
-          color: Colors.black,
-          iconSize: 40,
-          onPressed: () => Navigator.of(context).pop(),
         ),
         backgroundColor: Colors.white,
       ),
       body: ListView.builder(
-        itemCount: province.length,
+        // itemCount: _tambon.tambon.length,
+        itemCount: zipcode.length,
         itemBuilder: (context, i) {
           return Column(
             children: [
               SizedBox(height: 5),
               InkWell(
-                onTap: () {
-                  _province.getActiveProvince(province[i].id);
-                  _province.choose(province[i].name);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SelectAmphoe()),
-                  );
-                },
+                onTap: () {},
                 child: Row(
                   children: [
                     Expanded(
@@ -54,7 +66,8 @@ class SelectProvince extends StatelessWidget {
                                   width: 0.1, color: Colors.black38)),
                         ),
                         child: Text(
-                          province[i].name,
+                          // _tambon.tambon[i].name,
+                          zipcode[i],
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black87,
