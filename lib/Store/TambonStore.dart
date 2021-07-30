@@ -4,7 +4,7 @@ import 'package:san/models/province.dart';
 
 class TambonData extends ChangeNotifier {
   List<Tambon> _tambon = [];
-  String _title = 'เลือกอำเภอ';
+  String _title = 'เลือกรหัสไปรษณีย์';
 
   choose(String choose) {
     _title = choose;

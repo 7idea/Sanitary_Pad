@@ -5,12 +5,14 @@ import 'package:san/Store/ProvinceStore.dart';
 import 'package:san/Store/TambonStore.dart';
 import 'package:san/screens/Profile/Address/components/input_file.dart';
 import 'package:san/screens/Profile/Address/components/login_button.dart';
+import 'package:san/screens/Profile/Address/components/selection.dart';
 
 class AddAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _province = Provider.of<ProvinceData>(context);
-
+    var _amphoe = Provider.of<AmphoeData>(context);
+    var _tambon = Provider.of<TambonData>(context);
     print('object ${_province.title}');
     return Scaffold(
       appBar: AppBar(title: Text('เพิ่มที่อยู่')),
@@ -24,9 +26,9 @@ class AddAddress extends StatelessWidget {
                 SizedBox(height: 10.0),
                 inputFile(label: "ชื่อ - นามสกุล"),
                 inputFile(label: "ที่อยู่"),
-                inputFile(label: "จังหวัด"),
-                inputFile(label: "เขต/อำเภอ"),
-                inputFile(label: "รหัสไปรษณีย์"),
+                Selection(title: _province.title),
+                Selection(title: _amphoe.title),
+                Selection(title: _tambon.title),
                 inputFile(label: "หมายเลขโทรศัพท์"),
                 SizedBox(height: 100.0),
                 LoginButton(),

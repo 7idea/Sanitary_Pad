@@ -22,7 +22,6 @@ class SelectProvince extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: ListView.builder(
-        // itemCount: province.province.length,
         itemCount: province.length,
         itemBuilder: (context, i) {
           return Column(
