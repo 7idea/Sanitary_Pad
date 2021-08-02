@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:san/Store/OrderStore.dart';
 import 'package:san/Store/ProductStore.dart';
 
 class BasketScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var store = Provider.of<ProductStore>(context);
+    var _store = Provider.of<ProductStore>(context);
+    var _order = Provider.of<OrderStore>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Basket'),
@@ -16,17 +18,17 @@ class BasketScreen extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: store.baskets.length,
+                itemCount: _store.baskets.length,
                 itemBuilder: (BuildContext context, int i) {
                   return Row(
                     children: [
                       Expanded(
                         flex: 2,
-                        child: Image.asset(store.baskets[i].images[0]),
+                        child: Image.asset(_store.baskets[i].images[0]),
                       ),
                       Expanded(
                         flex: 3,
-                        child: Text(store.baskets[i].title),
+                        child: Text(_store.baskets[i].title),
                       ),
                       Expanded(
                         flex: 3,
@@ -38,7 +40,8 @@ class BasketScreen extends StatelessWidget {
                             children: [
                               IconButton(
                                 onPressed: () {
-                                  store.removeOneItemToBasket(store.baskets[i]);
+                                  _store
+                                      .removeOneItemToBasket(_store.baskets[i]);
                                 },
                                 icon: Icon(Icons.remove, color: Colors.red),
                               ),
@@ -47,12 +50,12 @@ class BasketScreen extends StatelessWidget {
                                   border: Border.all(color: Colors.grey),
                                 ),
                                 child: Text(
-                                  store.baskets[i].qty.toString(),
+                                  _store.baskets[i].qty.toString(),
                                 ),
                               ),
                               IconButton(
                                 onPressed: () {
-                                  store.addOneItemToBasket(store.baskets[i]);
+                                  _store.addOneItemToBasket(_store.baskets[i]);
                                 },
                                 icon: Icon(Icons.add, color: Colors.green),
                               ),
@@ -68,15 +71,18 @@ class BasketScreen extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                    child: TextButton(
-                  onPressed: () {},
-                  child: Text('ชำระเงิน'),
-                  style: TextButton.styleFrom(
-                    primary: Colors.white,
-                    backgroundColor: Colors.teal,
-                    onSurface: Colors.grey,
+                  child: TextButton(
+                    onPressed: () {
+                      print(_order.showOrder());
+                    },
+                    child: Text('ชำระเงิน'),
+                    style: TextButton.styleFrom(
+                      primary: Colors.white,
+                      backgroundColor: Colors.teal,
+                      onSurface: Colors.grey,
+                    ),
                   ),
-                )),
+                ),
               ],
             ),
             SizedBox(height: 50),
