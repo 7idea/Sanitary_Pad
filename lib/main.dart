@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:san/Store/AddressStore.dart';
-import 'package:san/Store/MyStore.dart';
+import 'package:san/Store/ProductStore.dart';
 import 'package:san/screens/Profile/Address/add_address.dart';
 import 'package:san/screens/Splash_Screen/index.dart';
 import 'dart:convert'; //json.decode
@@ -26,8 +26,8 @@ void main() async {
     runApp(
       MultiProvider(
         providers: [
-          ChangeNotifierProvider<MyStore>(create: (context) {
-            return MyStore();
+          ChangeNotifierProvider<ProductStore>(create: (context) {
+            return ProductStore();
           }),
           ChangeNotifierProvider<ProvinceData>(create: (context) {
             return ProvinceData();

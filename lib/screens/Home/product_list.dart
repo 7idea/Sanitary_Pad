@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/MyStore.dart';
+import 'package:san/Store/ProductStore.dart';
 import 'package:san/screens/ProductDetail/product_detail.dart';
 
 class ProductListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var store = Provider.of<MyStore>(context);
+    var store = Provider.of<ProductStore>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Product List Page'),
