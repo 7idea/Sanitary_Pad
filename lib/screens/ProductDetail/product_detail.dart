@@ -7,10 +7,10 @@ import 'package:san/screens/Basket/basket_screen.dart';
 class ProductDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var store = Provider.of<ProductStore>(context);
+    var _product = Provider.of<ProductStore>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('PRODUCT DETAIL'),
+        title: Text('รายละเอียดสินค้า'),
         actions: [
           InkWell(
             onTap: () {
@@ -22,7 +22,7 @@ class ProductDetail extends StatelessWidget {
               );
             },
             child: Text(
-              store.getBasketQty().toString(),
+              _product.getBasketQty().toString(),
             ),
           ),
         ],
@@ -30,8 +30,8 @@ class ProductDetail extends StatelessWidget {
       body: Column(
         children: [
           Hero(
-            tag: store.productDetail.id,
-            child: Image.asset(store.productDetail.images[0]),
+            tag: _product.productDetail.id,
+            child: Image.asset(_product.productDetail.images[0]),
           ),
           SizedBox(height: 50),
           Row(
@@ -41,20 +41,20 @@ class ProductDetail extends StatelessWidget {
                 icon: Icon(Icons.remove),
                 color: Colors.red,
                 onPressed: () {
-                  store.removeOneItemToBasket(store.productDetail);
+                  _product.removeOneItemToBasket(_product.productDetail);
                 },
               ),
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey),
                 ),
-                child: Text(store.productDetail.qty.toString()),
+                child: Text(_product.productDetail.qty.toString()),
               ),
               IconButton(
                 icon: Icon(Icons.add),
                 color: Colors.green,
                 onPressed: () {
-                  store.addOneItemToBasket(store.productDetail);
+                  _product.addOneItemToBasket(_product.productDetail);
                 },
               ),
             ],

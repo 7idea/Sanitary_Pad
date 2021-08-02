@@ -4,8 +4,17 @@ import 'package:san/models/product.dart';
 class ProductStore extends ChangeNotifier {
   List<Product> _products = [];
   List<Product> _baskets = [];
-  late int _selected;
+  late int _index;
   int _qty = 0;
+
+  Product nullData = Product(
+    id: 0,
+    images: [''],
+    title: 'null',
+    price: 000,
+    qty: 1,
+    description: '',
+  );
 
   ProductStore() {
     _products = [
@@ -45,26 +54,16 @@ class ProductStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  selectedProduct(int i) {
-    _selected = i;
+  indexOfProduct(int i) {
+    _index = i;
   }
 
   List<Product> get products => _products;
   List<Product> get baskets => _baskets;
-  get productDetail => _products[_selected];
+  get productDetail => _products[_index];
   get showQty => _qty;
 
   addOneItemToBasket(Product p) {
-    Product nullData;
-    nullData = Product(
-      id: 0,
-      images: [''],
-      title: 'null',
-      price: 000,
-      qty: 1,
-      description: '',
-    );
-
     Product found =
         _baskets.firstWhere((a) => a.id == p.id, orElse: () => nullData);
 
@@ -77,16 +76,6 @@ class ProductStore extends ChangeNotifier {
   }
 
   removeOneItemToBasket(Product p) {
-    Product nullData;
-    nullData = Product(
-      id: 0,
-      images: [''],
-      title: 'null',
-      price: 000,
-      qty: 0,
-      description: '',
-    );
-
     Product found =
         _baskets.firstWhere((a) => a.id == p.id, orElse: () => nullData);
     if (found.title != 'null' && found.qty == 1) {
