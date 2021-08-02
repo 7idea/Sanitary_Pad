@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:san/Store/AddressStore.dart';
 import 'package:san/Store/AmphoeStore.dart';
 import 'package:san/Store/ProvinceStore.dart';
 import 'package:san/Store/TambonStore.dart';
@@ -13,9 +14,16 @@ class AddAddress extends StatelessWidget {
     var _province = Provider.of<ProvinceData>(context);
     var _amphoe = Provider.of<AmphoeData>(context);
     var _tambon = Provider.of<TambonData>(context);
-    Map<String, dynamic> dataAddress = {};
+    var _address = Provider.of<AddressStore>(context);
 
-    print('object ${_province.title}');
+    if (_address.showAddressData != null) {
+      print('showName ' + _address.showAddressData.name);
+      print('showAddress ' + _address.showAddressData.address);
+      print('showProvince ' + _address.showAddressData.province);
+      print('showAmphoe ' + _address.showAddressData.amphoe);
+      print('showZipcode ${_address.showAddressData.zipcode}');
+      print('showPhone ${_address.showAddressData.phone}');
+    }
     return Scaffold(
       appBar: AppBar(title: Text('เพิ่มที่อยู่')),
       body: Container(
@@ -42,7 +50,7 @@ class AddAddress extends StatelessWidget {
                   obscureText: false,
                 ),
                 SizedBox(height: 100.0),
-                LoginButton(),
+                SaveAddress(),
                 SizedBox(height: 30.0),
                 Row(
                   children: [

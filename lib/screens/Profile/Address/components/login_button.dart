@@ -3,17 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:san/Store/AddressStore.dart';
 import 'package:san/models/address.dart';
 
-class LoginButton extends StatelessWidget {
-  // final Map<String, dynamic> dataAddress;
-
-  // LoginButton({
-  //   required this.dataAddress,
-  // });
-
+class SaveAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _address = Provider.of<AddressStore>(context);
-    Address dataAddress;
+
+  
 
     return Container(
       width: double.infinity,
@@ -31,7 +26,18 @@ class LoginButton extends StatelessWidget {
           style: TextButton.styleFrom(
             primary: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            _address.setAddressData(
+              Address(
+                name: _address.showName,
+                address: _address.showAddress,
+                province: _address.showProvince,
+                amphoe: _address.showAmphoe,
+                zipcode: _address.showZipcode,
+                phone: _address.showPhone,
+              ),
+            );
+          },
           child: Text('บันทึก', style: TextStyle(fontSize: 20.0)),
         ),
       ),

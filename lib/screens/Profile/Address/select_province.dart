@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:san/Store/AddressStore.dart';
 import 'package:san/Store/ProvinceStore.dart';
 import 'package:san/screens/Profile/Address/select_amphoe.dart';
 
 class SelectProvince extends StatelessWidget {
-  String title = 'จังหวัด';
   @override
   Widget build(BuildContext context) {
     var _province = Provider.of<ProvinceData>(context);
+    var _address = Provider.of<AddressStore>(context);
     var province = [];
     for (int i = 0; i < _province.province.length; i++) {
       province.add(_province.province[i]);
@@ -16,7 +17,7 @@ class SelectProvince extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          title,
+          'จังหวัด',
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -31,6 +32,7 @@ class SelectProvince extends StatelessWidget {
                 onTap: () {
                   _province.getActiveProvince(province[i].id);
                   _province.choose(province[i].name);
+                  _address.setProvinceName(province[i].name);
                   Navigator.pop(context);
                   Navigator.push(
                     context,
