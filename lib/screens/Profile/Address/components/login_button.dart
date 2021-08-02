@@ -8,8 +8,6 @@ class SaveAddress extends StatelessWidget {
   Widget build(BuildContext context) {
     var _address = Provider.of<AddressStore>(context);
 
-  
-
     return Container(
       width: double.infinity,
       height: 50,

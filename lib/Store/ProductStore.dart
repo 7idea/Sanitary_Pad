@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:san/models/product.dart';
 
-class MyStore extends ChangeNotifier {
+class ProductStore extends ChangeNotifier {
   List<Product> _products = [];
   List<Product> _baskets = [];
   late int _selected;
   int _qty = 0;
 
-  MyStore() {
+  ProductStore() {
     _products = [
       Product(
           id: 1,
