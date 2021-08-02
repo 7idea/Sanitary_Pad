@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:san/Store/AddressStore.dart';
 import 'package:san/Store/AmphoeStore.dart';
 import 'package:san/Store/ProvinceStore.dart';
 import 'package:san/screens/Profile/Address/select_tambon.dart';
@@ -9,6 +10,7 @@ class SelectAmphoe extends StatelessWidget {
   Widget build(BuildContext context) {
     var _amphoe = Provider.of<AmphoeData>(context);
     var _province = Provider.of<ProvinceData>(context);
+    var _address = Provider.of<AddressStore>(context);
 
     var amphoe = [];
     for (int i = 0; i < _amphoe.amphoe.length - 1; i++) {
@@ -36,8 +38,9 @@ class SelectAmphoe extends StatelessWidget {
               InkWell(
                 onTap: () {
                   _amphoe.getActiveAmphoe(amphoe[i].id);
-                   _amphoe.choose(amphoe[i].name);
-                   Navigator.pop(context);
+                  _amphoe.choose(amphoe[i].name);
+                  _address.setAmphoeName(amphoe[i].name);
+                  Navigator.pop(context);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SelectTambon()),
@@ -55,7 +58,6 @@ class SelectAmphoe extends StatelessWidget {
                                   width: 0.1, color: Colors.black38)),
                         ),
                         child: Text(
-                          
                           amphoe[i].name,
                           style: TextStyle(
                             fontSize: 16,

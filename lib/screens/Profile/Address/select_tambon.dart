@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:san/Store/AddressStore.dart';
 import 'package:san/Store/AmphoeStore.dart';
 import 'package:san/Store/TambonStore.dart';
-import 'package:san/screens/Profile/Address/add_address.dart';
 
 class SelectTambon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _tambon = Provider.of<TambonData>(context);
     var _amphoe = Provider.of<AmphoeData>(context);
+    var _address = Provider.of<AddressStore>(context);
 
     var zipcode = [];
     for (int i = 0; i < _tambon.tambon.length - 1; i++) {
       if (_tambon.tambon[i].amphoeId == _amphoe.amphoeId) {
-        print('pppppppppppp');
         zipcode.add(_tambon.tambon[i].zipcode[0].toString());
       }
     }
     // remove duplicate
     zipcode = zipcode.toSet().toList();
 
-    //remove null value
+    // remove null value
     if (zipcode.indexOf('null') != -1) {
       zipcode.removeAt(zipcode.indexOf('null'));
     }
@@ -45,11 +45,8 @@ class SelectTambon extends StatelessWidget {
               InkWell(
                 onTap: () {
                   _tambon.choose(zipcode[i]);
+                  _address.setZipcode(int.parse(zipcode[i]));
                   Navigator.pop(context);
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => AddAddress()),
-                  // );
                 },
                 child: Row(
                   children: [

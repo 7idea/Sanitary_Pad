@@ -9,7 +9,6 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _address = Provider.of<AddressStore>(context);
-    
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +22,10 @@ class InputField extends StatelessWidget {
               _address.setName(text);
             }
             if (label == 'ที่อยู่') {
-              _address.setAddress(text);
+              _address.setAddressName(text);
+            }
+            if (label == 'หมายเลขโทรศัพท์') {
+              _address.setPhone(int.parse(text));
             }
           },
           obscureText: obscureText,
