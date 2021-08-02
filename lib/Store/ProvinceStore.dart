@@ -3,11 +3,11 @@ import 'package:san/models/province.dart';
 
 class ProvinceData extends ChangeNotifier {
   List<Province> _province = [];
-  late int _province_id;
+  late int _provinceId;
   String _title = 'เลือกจังหวัด';
 
   getActiveProvince(int i) {
-    _province_id = i;
+    _provinceId = i;
   }
 
   choose(String choose) {
@@ -15,7 +15,7 @@ class ProvinceData extends ChangeNotifier {
   }
 
   List<Province> get province => _province;
-  get provinceId => _province_id;
+  get provinceId => _provinceId;
   get title => _title;
 
   ProvinceData() {

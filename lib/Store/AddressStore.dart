@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AddressStore extends ChangeNotifier {
   String? _name;
   String? _address;
+  
 
   setName(String n) {
     _name = n;

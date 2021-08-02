@@ -12,7 +12,7 @@ class SelectTambon extends StatelessWidget {
 
     var zipcode = [];
     for (int i = 0; i < _tambon.tambon.length - 1; i++) {
-      if (_tambon.tambon[i].amphoe_id == _amphoe.amphoeId) {
+      if (_tambon.tambon[i].amphoeId == _amphoe.amphoeId) {
         print('pppppppppppp');
         zipcode.add(_tambon.tambon[i].zipcode[0].toString());
       }
@@ -45,10 +45,11 @@ class SelectTambon extends StatelessWidget {
               InkWell(
                 onTap: () {
                   _tambon.choose(zipcode[i]);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AddAddress()),
-                  );
+                  Navigator.pop(context);
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => AddAddress()),
+                  // );
                 },
                 child: Row(
                   children: [
