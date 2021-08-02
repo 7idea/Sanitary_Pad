@@ -31,6 +31,7 @@ class SelectProvince extends StatelessWidget {
                 onTap: () {
                   _province.getActiveProvince(province[i].id);
                   _province.choose(province[i].name);
+                  Navigator.pop(context);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SelectAmphoe()),

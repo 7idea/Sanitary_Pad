@@ -12,7 +12,7 @@ class SelectAmphoe extends StatelessWidget {
 
     var amphoe = [];
     for (int i = 0; i < _amphoe.amphoe.length - 1; i++) {
-      if (_amphoe.amphoe[i].province_id == _province.provinceId) {
+      if (_amphoe.amphoe[i].provinceId == _province.provinceId) {
         amphoe.add(_amphoe.amphoe[i]);
       }
     }
@@ -35,8 +35,9 @@ class SelectAmphoe extends StatelessWidget {
               SizedBox(height: 5),
               InkWell(
                 onTap: () {
-             
                   _amphoe.getActiveAmphoe(amphoe[i].id);
+                   _amphoe.choose(amphoe[i].name);
+                   Navigator.pop(context);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SelectTambon()),
@@ -54,7 +55,7 @@ class SelectAmphoe extends StatelessWidget {
                                   width: 0.1, color: Colors.black38)),
                         ),
                         child: Text(
-                          // _amphoe.amphoe[i].name,
+                          
                           amphoe[i].name,
                           style: TextStyle(
                             fontSize: 16,
