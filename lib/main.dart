@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:san/Store/AddressStore.dart';
+import 'package:san/Store/OrderStore.dart';
 import 'package:san/Store/ProductStore.dart';
+import 'package:san/screens/Checkout/checkout.dart';
+import 'package:san/screens/Home/product_list.dart';
 import 'package:san/screens/Profile/Address/add_address.dart';
 import 'package:san/screens/Splash_Screen/index.dart';
 import 'dart:convert'; //json.decode
@@ -40,6 +43,9 @@ void main() async {
           }),
           ChangeNotifierProvider<AddressStore>(create: (context) {
             return AddressStore();
+          }),
+          ChangeNotifierProvider<OrderStore>(create: (context) {
+            return OrderStore();
           }),
         ],
         child: MyApp(),
@@ -80,9 +86,8 @@ class MyApp extends StatelessWidget {
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      home: AddAddress(),
-      // home: ShowProduct(),
-      // home: ProductListPage(),
+      // home: Checkout(),
+      home: ProductListPage(),
       // home:Profile(
       //   idTokenState: 'none',
       //   nameState: 'none',

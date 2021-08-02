@@ -73,7 +73,6 @@ class ProductStore extends ChangeNotifier {
     } else {
       _baskets.add(p);
     }
-
     notifyListeners();
   }
 
