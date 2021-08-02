@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'package:san/Store/AddressStore.dart';
 import 'package:san/Store/MyStore.dart';
 import 'package:san/screens/Profile/Address/add_address.dart';
 import 'package:san/screens/Splash_Screen/index.dart';
@@ -36,6 +37,9 @@ void main() async {
           }),
           ChangeNotifierProvider<AmphoeData>(create: (context) {
             return AmphoeData();
+          }),
+          ChangeNotifierProvider<AddressStore>(create: (context) {
+            return AddressStore();
           }),
         ],
         child: MyApp(),

@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:san/Store/AddressStore.dart';
+import 'package:san/models/address.dart';
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({
-    Key? key,
-  }) : super(key: key);
+  // final Map<String, dynamic> dataAddress;
+
+  // LoginButton({
+  //   required this.dataAddress,
+  // });
 
   @override
   Widget build(BuildContext context) {
+    var _address = Provider.of<AddressStore>(context);
+    Address dataAddress;
+
     return Container(
       width: double.infinity,
       height: 50,
@@ -24,7 +32,7 @@ class LoginButton extends StatelessWidget {
             primary: Colors.white,
           ),
           onPressed: () {},
-          child: Text('บันทึก',style:TextStyle(fontSize: 20.0)),
+          child: Text('บันทึก', style: TextStyle(fontSize: 20.0)),
         ),
       ),
     );
