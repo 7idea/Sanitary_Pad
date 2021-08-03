@@ -86,8 +86,8 @@ class MyApp extends StatelessWidget {
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      home: Checkout(),
-      // home: ProductListPage(),
+      // home: Checkout(),
+      home: ProductListPage(),
       // home:AddAddress(),
       // home: LoginOrRegister(),
       // home:Profile(
