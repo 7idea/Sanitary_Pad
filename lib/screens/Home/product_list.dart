@@ -33,7 +33,7 @@ class ProductListPage extends StatelessWidget {
                       tag: _product.products[i].id,
                       child: Image.asset(_product.products[i].images[0])),
                 ),
-                Text(_product.products[i].images[0]),
+                Text(_product.products[i].title),
               ],
             ),
           );
