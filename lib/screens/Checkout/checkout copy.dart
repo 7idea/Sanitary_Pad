@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:san/Store/ProductStore.dart';
 
-import 'components/radio_button_group.dart';
+import 'components/radio_button_widget.dart';
 
 class Checkout extends StatelessWidget {
   @override
