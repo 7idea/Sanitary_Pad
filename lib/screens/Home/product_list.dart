@@ -6,36 +6,36 @@ import 'package:san/screens/ProductDetail/product_detail.dart';
 class ProductListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var store = Provider.of<ProductStore>(context);
+    var _product = Provider.of<ProductStore>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Product List Page'),
+        title: Text('สินค้าทั้งหมด'),
       ),
       body: GridView.builder(
         gridDelegate:
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemCount: store.products.length,
+        itemCount: _product.products.length,
         itemBuilder: (context, i) {
-          return Column(
-            children: [
-              Container(
-                width: 150,
-                height: 150,
-                child: Hero(
-                    tag: store.products[i].id,
-                    child: Image.asset(store.products[i].images[0])),
-              ),
-              TextButton(
-                child: Text(store.products[i].title),
-                onPressed: () {
-                  store.selectedProduct(i);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ProductDetail()),
-                  );
-                },
-              ),
-            ],
+          return InkWell(
+            onTap: () {
+              _product.indexOfProduct(i);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProductDetail()),
+              );
+            },
+            child: Column(
+              children: [
+                Container(
+                  width: 150,
+                  height: 150,
+                  child: Hero(
+                      tag: _product.products[i].id,
+                      child: Image.asset(_product.products[i].images[0])),
+                ),
+                Text(_product.products[i].images[0]),
+              ],
+            ),
           );
         },
       ),

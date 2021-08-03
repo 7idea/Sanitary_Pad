@@ -6,7 +6,7 @@ import 'package:san/Store/OrderStore.dart';
 import 'package:san/Store/ProductStore.dart';
 import 'package:san/screens/Checkout/checkout.dart';
 import 'package:san/screens/Home/product_list.dart';
-import 'package:san/screens/Profile/Address/add_address.dart';
+import 'package:san/screens/LoginOrRegister/login_or_register.dart';
 import 'package:san/screens/Splash_Screen/index.dart';
 import 'dart:convert'; //json.decode
 import 'package:flutter_line_sdk/flutter_line_sdk.dart';
@@ -86,8 +86,10 @@ class MyApp extends StatelessWidget {
       // routes: routes,
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
-      // home: Checkout(),
-      home: ProductListPage(),
+      home: Checkout(),
+      // home: ProductListPage(),
+      // home:AddAddress(),
+      // home: LoginOrRegister(),
       // home:Profile(
       //   idTokenState: 'none',
       //   nameState: 'none',
@@ -96,6 +98,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class LoginOrLogin {}
 
 class Desktop extends StatelessWidget {
   final String accessToken;
