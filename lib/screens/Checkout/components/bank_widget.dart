@@ -57,29 +57,4 @@ class _RadioButtonGroupWidgetState extends State<BankWidget> {
       ],
     );
   }
-
-  // Widget buildRadios() => Theme(
-  //       data: Theme.of(context).copyWith(
-  //         unselectedWidgetColor: unselectedColor,
-  //       ),
-  //       child: Column(
-  //         children: values.map(
-  //           (value) {
-  //             final selected = this.selectedValue == value;
-  //             final color = selected ? selectedColor : unselectedColor;
-  //             return RadioListTile<String>(
-  //               value: value,
-  //               groupValue: selectedValue,
-  //               title: Text(
-  //                 value,
-  //                 style: TextStyle(color: color),
-  //               ),
-  //               activeColor: selectedColor,
-  //               onChanged: (value) =>
-  //                   setState(() => this.selectedValue = value as String),
-  //             );
-  //           },
-  //         ).toList(),
-  //       ),
-  //     );
 }

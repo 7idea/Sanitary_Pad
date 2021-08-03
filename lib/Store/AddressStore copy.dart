@@ -8,23 +8,8 @@ class AddressStore extends ChangeNotifier {
   String? _amphoe;
   int? _zipcode;
   int? _phone;
-
+  
   Address? addressData;
-  List<Address> address = [];
-
-  AddressStore() {
-    address = [
-      Address(
-        name:'โชคชัย มีแย้ม',
-        address:'เลขที่ 21 อาคารทีเอสทีทาวเวอร์ ชั้น 20 ซอยเฉยพ่วง ถนนวิภาวดี-รังสิต แขวงจอมพล เขตจตุจักร',
-        province: 'กรุงเทพ',
-        amphoe: 'บางนา',
-        zipcode: 10900,
-        phone: 0123456789
-          ),
-    ];
-    notifyListeners();
-  }
 
   setName(String v) {
     print('setName $v');
