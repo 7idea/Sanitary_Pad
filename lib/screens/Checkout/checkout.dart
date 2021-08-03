@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:san/screens/Checkout/components/address_widget.dart';
+import 'package:san/screens/Checkout/components/order_widget.dart';
+import 'components/address_widget.dart';
+import 'components/bank_widget.dart';
 
 class Checkout extends StatelessWidget {
   @override
@@ -9,8 +11,13 @@ class Checkout extends StatelessWidget {
         title: Text('ยืนยันการสั่งซื้อ'),
       ),
       body: SingleChildScrollView(
-        child: AddressWidget(),
-      ),
+          child: Column(
+        children: [
+          AddressWidget(),
+          OrderWidget(),
+          BankWidget(),
+        ],
+      )),
     );
   }
 }

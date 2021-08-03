@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:san/Store/ProductStore.dart';
 
-import 'components/radio_button_widget.dart';
+import 'components/bank_widget.dart';
 
 class Checkout extends StatelessWidget {
   @override
@@ -46,7 +46,7 @@ class Checkout extends StatelessWidget {
             SizedBox(height: 30),
             Text('ช่องทางการชำระเงิน', style: TextStyle(fontSize: 20)),
             SizedBox(height: 10),
-            RadioButtonGroupWidget(),
+            BankWidget(),
 
             ButtonConfirmToBuy(),
             // SizedBox(height: 50),
