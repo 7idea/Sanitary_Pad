@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:san/Store/OrderStore.dart';
 import 'package:san/Store/ProductStore.dart';
-import 'package:san/models/product.dart';
 import 'package:san/screens/Checkout/checkout.dart';
 
 class BasketScreen extends StatelessWidget {
