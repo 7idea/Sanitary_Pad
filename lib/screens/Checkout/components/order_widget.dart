@@ -35,7 +35,7 @@ class OrderWidget extends StatelessWidget {
                   ),
                   Expanded(
                     flex: 3,
-                    child: Text(_product.products[i].images[0]),
+                    child: Text(_product.products[i].title),
                   ),
                   Expanded(
                     flex: 1,
