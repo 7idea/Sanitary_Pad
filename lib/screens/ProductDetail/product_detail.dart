@@ -60,7 +60,7 @@ class ProductDetail extends StatelessWidget {
             ],
           ),
           SizedBox(height: 100.0),
-          // TextButton(onPressed: () {}, child: Text('เพิ่มลงรถเข็น'))
+          
         ],
       ),
     );
