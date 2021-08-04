@@ -25,16 +25,16 @@ class SaveAddress extends StatelessWidget {
             primary: Colors.white,
           ),
           onPressed: () {
-            _address.setAddressData(
-              Address(
-                name: _address.showName,
-                address: _address.showAddress,
-                province: _address.showProvince,
-                amphoe: _address.showAmphoe,
-                zipcode: _address.showZipcode,
-                phone: _address.showPhone,
-              ),
-            );
+            // _address.setAddressData(
+            //   Address(
+            //     name: _address.showName,
+            //     address: _address.showAddress,
+            //     province: _address.showProvince,
+            //     amphoe: _address.showAmphoe,
+            //     zipcode: _address.showZipcode,
+            //     phone: _address.showPhone,
+            //   ),
+            // );
           },
           child: Text('บันทึก', style: TextStyle(fontSize: 20.0)),
         ),

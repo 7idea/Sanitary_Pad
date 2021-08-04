@@ -15,13 +15,37 @@ class AddressStore extends ChangeNotifier {
   AddressStore() {
     address = [
       Address(
-        name:'โชคชัย มีแย้ม',
-        address:'เลขที่ 21 อาคารทีเอสทีทาวเวอร์ ชั้น 20 ซอยเฉยพ่วง ถนนวิภาวดี-รังสิต แขวงจอมพล เขตจตุจักร',
+        name: 'โชคชัย มีแย้ม',
+        address:
+            'เลขที่ 21 อาคารทีเอสทีทาวเวอร์ ชั้น 20 ซอยเฉยพ่วง ถนนวิภาวดี-รังสิต แขวงจอมพล เขตจตุจักร',
         province: 'กรุงเทพ',
         amphoe: 'บางนา',
         zipcode: 10900,
-        phone: 0123456789
-          ),
+        phone: 0123456789,
+        type: 'ที่ทำงาน',
+        sendAt: true,
+      ),
+      Address(
+        name: 'สมหมาย หมายปอง',
+        address: 'เลขที่ 72 ถ.แจ้งวัฒนะ ต.ตลาดบางเขน อ.หลักสี่',
+        province: 'กรุงเทพ',
+        amphoe: 'อ่อนนุช',
+        zipcode: 10210,
+        phone: 0123456789,
+        type: 'ที่บ้าน',
+        sendAt: false,
+      ),
+      Address(
+        name: 'ขจร คือดอกไม้',
+        address:
+            '1/102 หมู่ 6 ซอยชินเขต 1/21 งามวงศ์วาน ต.ทุ่งสองห้อง อ.หลักสี่',
+        province: 'กรุงเทพ',
+        amphoe: 'สะพานควาย',
+        zipcode: 10200,
+        phone: 0123456789,
+        type: 'ที่บ้าน',
+        sendAt: false,
+      ),
     ];
     notifyListeners();
   }
@@ -76,4 +100,5 @@ class AddressStore extends ChangeNotifier {
   get showPhone => _phone;
 
   get showAddressData => addressData;
+  get allAddressData => address;
 }
