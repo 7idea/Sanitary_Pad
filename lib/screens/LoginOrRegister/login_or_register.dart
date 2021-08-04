@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:san/screens/Home/product_list.dart';
 import 'package:san/screens/Login/login.dart';
 import 'package:san/screens/Register/register.dart';
-import 'package:san/screens/Splash_Screen/index.dart';
 
 class LoginOrRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-       
         width: double.infinity,
         child: SingleChildScrollView(
-                  child: Padding(
+          child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 65.0),
             child: Column(
               children: [
@@ -38,9 +37,10 @@ class LoginOrRegister extends StatelessWidget {
                     primary: Colors.pink.shade400,
                   ),
                   onPressed: () {
+                    Navigator.of(context).pop();
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SplashScreen()),
+                      MaterialPageRoute(builder: (context) => ProductListPage()),
                     );
                   },
                   child: Text('Skip for now'),

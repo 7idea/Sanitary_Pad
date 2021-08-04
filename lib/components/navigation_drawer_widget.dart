@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:san/Store/ProfileStore.dart';
 import 'package:san/screens/Checkout/checkout.dart';
+import 'package:san/screens/Home/product_list.dart';
+import 'package:san/screens/LoginOrRegister/login_or_register.dart';
 import 'package:san/screens/Profile/Address/add_address.dart';
 import 'package:san/screens/Profile/profile.dart';
 import 'package:san/screens/Profile/user_page.dart';
@@ -8,26 +12,26 @@ class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
   @override
   Widget build(BuildContext context) {
-    final name = 'Sarah Abs';
-    final email = 'sarah@abs.com';
-    final urlImage =
-        'https://upload.wikimedia.org/wikipedia/commons/8/85/Elon_Musk_Royal_Society_%28crop1%29.jpg';
+    var _profile = Provider.of<ProfileStore>(context);
     return Drawer(
       child: Material(
         color: Color.fromRGBO(50, 75, 205, 1),
         child: ListView(
           children: [
-            buildHeader(
-              urlImage: urlImage,
-              name: name,
-              email: email,
-              onClicked: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) =>
-                      UserPage(name: name, urlImage: urlImage),
+            if (_profile.profile != null)
+              buildHeader(
+                urlImage: _profile.profile.pictureState,
+                name: _profile.profile.nameState,
+                email: 'sarah@abs.com',
+                onClicked: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => UserPage(
+                      name: _profile.profile.pictureState,
+                      urlImage: _profile.profile.nameState,
+                    ),
+                  ),
                 ),
               ),
-            ),
             SizedBox(height: 48),
             buildMenuItem(
               text: 'หน้าหลัก',
@@ -47,6 +51,11 @@ class NavigationDrawerWidget extends StatelessWidget {
             SizedBox(height: 24),
             Divider(color: Colors.white70),
             SizedBox(height: 24),
+            buildMenuItem(
+              text: 'Login',
+              icon: Icons.login,
+              onClicked: () => selectedItem(context, 3),
+            ),
           ],
         ),
       ),
@@ -58,41 +67,43 @@ class NavigationDrawerWidget extends StatelessWidget {
     required String name,
     required String email,
     required VoidCallback onClicked,
-  }) =>
-      InkWell(
-          onTap: onClicked,
-          child: Container(
-            padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
-            child: Row(
+  }) {
+    return InkWell(
+      onTap: onClicked,
+      child: Container(
+        padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 30,
+              backgroundImage: NetworkImage(urlImage),
+            ),
+            SizedBox(width: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage: NetworkImage(urlImage),
+                Text(
+                  name,
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-                SizedBox(width: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      name,
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
-                    SizedBox(height: 4),
-                    Text(
-                      email,
-                      style: TextStyle(fontSize: 14, color: Colors.white),
-                    ),
-                  ],
+                SizedBox(height: 4),
+                Text(
+                  email,
+                  style: TextStyle(fontSize: 14, color: Colors.white),
                 ),
-                Spacer(),
-                CircleAvatar(
-                  radius: 24,
-                  backgroundColor: Color.fromRGBO(30, 60, 168, 1),
-                  child: Icon(Icons.add_comment_outlined, color: Colors.white),
-                )
               ],
             ),
-          ));
+            Spacer(),
+            CircleAvatar(
+              radius: 24,
+              backgroundColor: Color.fromRGBO(30, 60, 168, 1),
+              child: Icon(Icons.add_comment_outlined, color: Colors.white),
+            )
+          ],
+        ),
+      ),
+    );
+  }
 
   Widget buildMenuItem({
     required String text,
@@ -116,7 +127,7 @@ class NavigationDrawerWidget extends StatelessWidget {
       case 0:
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => Checkout(),
+            builder: (context) => ProductListPage(),
           ),
         );
         break;
@@ -137,6 +148,13 @@ class NavigationDrawerWidget extends StatelessWidget {
             // ),
             return Profile();
           }),
+        );
+        break;
+      case 3:
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => LoginOrRegister(),
+          ),
         );
         break;
     }

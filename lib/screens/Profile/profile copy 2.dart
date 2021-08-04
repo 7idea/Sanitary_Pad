@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:san/Store/ProfileStore.dart';
+// import 'package:san/components/drawer.dart';
+import 'package:san/components/menu.dart';
 import 'package:san/components/navigation_drawer_widget.dart';
-import 'package:san/screens/Home/product_list.dart';
 import 'package:san/screens/Profile/components/my_card.dart';
+// import 'package:jwt_decode/jwt_decode.dart';
 
 class Profile extends StatelessWidget {
+  // const Profile({
+  //   Key? key,
+  //   required this.idTokenState,
+  //   required this.nameState,
+  //   required this.pictureState,
+  // });
   static final routeName = '/profile';
+  // final String idTokenState;
+  // final String nameState;
+  // final String pictureState;
+
   @override
   Widget build(BuildContext context) {
-    var _profile = Provider.of<ProfileStore>(context);
-
-    if (_profile.profile == null) {
-      Navigator.of(context).pop();
-    }
-
     return Scaffold(
+      // appBar: Menu(img: pictureState, title: 'ddddd'),
       appBar: AppBar(
         title: Text('ddd'),
       ),
@@ -46,9 +51,8 @@ class Profile extends StatelessWidget {
                         ),
                         CircleAvatar(
                           backgroundImage: NetworkImage(
-                              _profile.profile.pictureState
-                              // pictureState
-                              // 'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
+                            // pictureState
+                              'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
                               ),
                           radius: 50.0,
                         ),
@@ -56,8 +60,7 @@ class Profile extends StatelessWidget {
                           height: 10.0,
                         ),
                         Text(
-                          _profile.profile.nameState,
-                          // 'nameState',
+                          'nameState',
                           style: TextStyle(fontSize: 22.0, color: Colors.white),
                         ),
                         SizedBox(

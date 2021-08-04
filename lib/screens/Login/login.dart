@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_line_sdk/flutter_line_sdk.dart';
+import 'package:provider/provider.dart';
+import 'package:san/Store/ProfileStore.dart';
+import 'package:san/models/profile_model.dart';
 import 'package:san/screens/Login/components/input_file.dart';
 import 'package:san/screens/Login/components/login_button.dart';
 import 'package:san/screens/Profile/profile.dart';
@@ -55,12 +58,14 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     if (name.isNotEmpty || picture.isNotEmpty) {
+      var _profile = Provider.of<ProfileStore>(context);
+      _profile.createProfile(ProfileModel(
+        idTokenState: accessToken,
+        nameState: name,
+        pictureState: picture,
+      ));
+
       return Profile();
-      // return Profile(
-      //   idTokenState: 'none',
-      //   nameState: name,
-      //   pictureState: picture,
-      // );
     } else {
       return Scaffold(
         appBar: AppBar(
