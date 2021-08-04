@@ -55,11 +55,12 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     if (name.isNotEmpty || picture.isNotEmpty) {
-      return Profile(
-        idTokenState: 'none',
-        nameState: name,
-        pictureState: picture,
-      );
+      return Profile();
+      // return Profile(
+      //   idTokenState: 'none',
+      //   nameState: name,
+      //   pictureState: picture,
+      // );
     } else {
       return Scaffold(
         appBar: AppBar(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:san/Store/ProductStore.dart';
+import 'package:san/components/navigation_drawer_widget.dart';
 import 'package:san/screens/ProductDetail/product_detail.dart';
 
 class ProductListPage extends StatelessWidget {
@@ -8,6 +9,7 @@ class ProductListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var _product = Provider.of<ProductStore>(context);
     return Scaffold(
+      drawer: NavigationDrawerWidget(),
       appBar: AppBar(
         title: Text('สินค้าทั้งหมด'),
       ),

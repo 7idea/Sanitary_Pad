@@ -1,6 +1,6 @@
 class Product {
   final List<String> images;
-  final num price;
+  final int price;
   int qty;
   final int id;
   final String? description;

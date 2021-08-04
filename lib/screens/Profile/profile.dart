@@ -1,37 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:san/components/drawer.dart';
+// import 'package:san/components/drawer.dart';
 import 'package:san/components/menu.dart';
+import 'package:san/components/navigation_drawer_widget.dart';
 import 'package:san/screens/Profile/components/my_card.dart';
 // import 'package:jwt_decode/jwt_decode.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({
-    Key? key,
-    required this.idTokenState,
-    required this.nameState,
-    required this.pictureState,
-    // required this.phone,
-    // required this.address,
-    // required this.bankAccount,
-  });
+  // const Profile({
+  //   Key? key,
+  //   required this.idTokenState,
+  //   required this.nameState,
+  //   required this.pictureState,
+  // });
   static final routeName = '/profile';
-  final String idTokenState;
-  final String nameState;
-  final String pictureState;
-  // final String phone;
-  // final List<String> address;
-  // final String bankAccount;
+  // final String idTokenState;
+  // final String nameState;
+  // final String pictureState;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: Menu(img: pictureState,title:'ddddd'),
-      drawer: myDrawer,
-
+      // appBar: Menu(img: pictureState, title: 'ddddd'),
+      appBar: AppBar(
+        title: Text('ddd'),
+      ),
+      drawer: NavigationDrawerWidget(),
       backgroundColor: Colors.white,
-
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -56,8 +50,9 @@ class Profile extends StatelessWidget {
                           height: 15.0,
                         ),
                         CircleAvatar(
-                          backgroundImage: NetworkImage(pictureState
-                              // 'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
+                          backgroundImage: NetworkImage(
+                            // pictureState
+                              'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg',
                               ),
                           radius: 50.0,
                         ),
@@ -65,7 +60,7 @@ class Profile extends StatelessWidget {
                           height: 10.0,
                         ),
                         Text(
-                          nameState,
+                          'nameState',
                           style: TextStyle(fontSize: 22.0, color: Colors.white),
                         ),
                         SizedBox(
@@ -155,5 +150,3 @@ class Profile extends StatelessWidget {
     );
   }
 }
-
-
