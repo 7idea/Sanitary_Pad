@@ -5,6 +5,8 @@ class Address {
   final String amphoe;
   final int zipcode;
   final int phone;
+  final String type;
+  final bool sendAt;
 
   Address({
     required this.name,
@@ -13,5 +15,7 @@ class Address {
     required this.amphoe,
     required this.zipcode,
     required this.phone,
+    required this.type,
+    required this.sendAt,
   });
 }

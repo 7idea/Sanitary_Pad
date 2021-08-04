@@ -8,10 +8,8 @@ class OrderStore extends ChangeNotifier {
   createOrder(List<Product> p) {
     sum = 0;
     order = p;
-    int s = 0;
     for (int i = 0; i < order.length; i++) {
-      s = order[i].qty * order[i].price;
-      sum += s;
+      sum = order[i].qty * order[i].price;
     }
     notifyListeners();
   }
