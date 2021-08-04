@@ -10,14 +10,8 @@ class OrderStore extends ChangeNotifier {
     order = p;
     int s = 0;
     for (int i = 0; i < order.length; i++) {
-      print(i);
-      print(order[i].qty);
-      print(order[i].price);
       s = order[i].qty * order[i].price;
-      print(s);
       sum += s;
-      // print(sum);
-      print('--------');
     }
     notifyListeners();
   }
