@@ -12,6 +12,7 @@ import 'dart:convert'; //json.decode
 import 'package:flutter_line_sdk/flutter_line_sdk.dart';
 import 'package:san/screens/Profile/profile.dart';
 import 'Store/AmphoeStore.dart';
+import 'Store/ProfileStore.dart';
 import 'Store/ProvinceStore.dart';
 import 'Store/TambonStore.dart';
 
@@ -46,6 +47,9 @@ void main() async {
           }),
           ChangeNotifierProvider<OrderStore>(create: (context) {
             return OrderStore();
+          }),
+          ChangeNotifierProvider<ProfileStore>(create: (context) {
+            return ProfileStore();
           }),
         ],
         child: MyApp(),
