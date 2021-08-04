@@ -31,32 +31,33 @@ class OrderWidget extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Image.asset(_order.showOrder[i].images[0]),
-                    // child: Image.asset(_product.products[i].images[0]),
                   ),
                   SizedBox(
                     width: 10,
                   ),
                   Expanded(
-                    flex: 3,
+                    flex: 2,
                     child: Text(_order.showOrder[i].title),
-                    // child: Text(_product.products[i].title),
                   ),
                   Expanded(
-                    flex: 1,
+                    flex: 2,
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Container(
                         color: Colors.white,
                         child: Text(
-                          _product.baskets[i].qty.toString(),
+                          '${_order.showOrder[i].qty} x ${_order.showOrder[i].price} = ${_order.showOrder[i].qty * _order.showOrder[i].price}',
                         ),
-                        // child: Text('5'),
                       ),
                     ),
                   ),
                 ],
               );
             },
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text('ราคารวม: ${_order.sum}'),
           ),
         ],
       ),
