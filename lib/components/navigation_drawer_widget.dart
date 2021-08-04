@@ -1,0 +1,144 @@
+import 'package:flutter/material.dart';
+import 'package:san/screens/Checkout/checkout.dart';
+import 'package:san/screens/Profile/Address/add_address.dart';
+import 'package:san/screens/Profile/profile.dart';
+import 'package:san/screens/Profile/user_page.dart';
+
+class NavigationDrawerWidget extends StatelessWidget {
+  final padding = EdgeInsets.symmetric(horizontal: 20);
+  @override
+  Widget build(BuildContext context) {
+    final name = 'Sarah Abs';
+    final email = 'sarah@abs.com';
+    final urlImage =
+        'https://upload.wikimedia.org/wikipedia/commons/8/85/Elon_Musk_Royal_Society_%28crop1%29.jpg';
+    return Drawer(
+      child: Material(
+        color: Color.fromRGBO(50, 75, 205, 1),
+        child: ListView(
+          children: [
+            buildHeader(
+              urlImage: urlImage,
+              name: name,
+              email: email,
+              onClicked: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) =>
+                      UserPage(name: name, urlImage: urlImage),
+                ),
+              ),
+            ),
+            SizedBox(height: 48),
+            buildMenuItem(
+              text: 'หน้าหลัก',
+              icon: Icons.home,
+              onClicked: () => selectedItem(context, 0),
+            ),
+            buildMenuItem(
+              text: 'ตะกร้า',
+              icon: Icons.shopping_cart,
+              onClicked: () => selectedItem(context, 1),
+            ),
+            buildMenuItem(
+              text: 'Profile',
+              icon: Icons.person,
+              onClicked: () => selectedItem(context, 2),
+            ),
+            SizedBox(height: 24),
+            Divider(color: Colors.white70),
+            SizedBox(height: 24),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildHeader({
+    required String urlImage,
+    required String name,
+    required String email,
+    required VoidCallback onClicked,
+  }) =>
+      InkWell(
+          onTap: onClicked,
+          child: Container(
+            padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: NetworkImage(urlImage),
+                ),
+                SizedBox(width: 20),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      email,
+                      style: TextStyle(fontSize: 14, color: Colors.white),
+                    ),
+                  ],
+                ),
+                Spacer(),
+                CircleAvatar(
+                  radius: 24,
+                  backgroundColor: Color.fromRGBO(30, 60, 168, 1),
+                  child: Icon(Icons.add_comment_outlined, color: Colors.white),
+                )
+              ],
+            ),
+          ));
+
+  Widget buildMenuItem({
+    required String text,
+    required IconData icon,
+    VoidCallback? onClicked,
+  }) {
+    final color = Colors.white;
+    final hoverColor = Colors.white70;
+
+    return ListTile(
+      leading: Icon(icon, color: color),
+      title: Text(text, style: TextStyle(color: color)),
+      hoverColor: hoverColor,
+      onTap: onClicked,
+    );
+  }
+
+  void selectedItem(BuildContext context, int index) {
+    Navigator.of(context).pop();
+    switch (index) {
+      case 0:
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => Checkout(),
+          ),
+        );
+        break;
+      case 1:
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => AddAddress(),
+          ),
+        );
+        break;
+      case 2:
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) {
+            //   return Profile(
+            //   idTokenState: 'null',
+            //   pictureState: 'null',
+            //   nameState: 'null',
+            // ),
+            return Profile();
+          }),
+        );
+        break;
+    }
+  }
+}

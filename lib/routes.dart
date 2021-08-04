@@ -12,9 +12,5 @@ final Map<String, WidgetBuilder> routes = {
   //       address: ['none'],
   //       bankAccount: "none",
   //     ),
-  Profile.routeName: (context) => Profile(
-        idTokenState: 'none',
-        nameState: "name",
-        pictureState: "picture",
-      ),
+  Profile.routeName: (context) => Profile(),
 };

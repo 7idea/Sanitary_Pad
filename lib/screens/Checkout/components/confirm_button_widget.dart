@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ConfirmButtonWidget extends StatelessWidget {
   final VoidCallback onClicked;
 
-  const ConfirmButtonWidget({required this.onClicked, Key? key})
+  const ConfirmButtonWidget({Key? key, required this.onClicked})
       : super(key: key);
 
   @override

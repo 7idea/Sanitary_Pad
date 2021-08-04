@@ -55,11 +55,12 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     if (name.isNotEmpty || picture.isNotEmpty) {
-      return Profile(
-        idTokenState: 'none',
-        nameState: name,
-        pictureState: picture,
-      );
+      // return Profile(
+      //   idTokenState: 'none',
+      //   nameState: name,
+      //   pictureState: picture,
+      // );
+      return Profile();
     } else {
       return Scaffold(
         appBar: AppBar(

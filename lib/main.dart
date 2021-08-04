@@ -122,11 +122,12 @@ class Desktop extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Profile(
-        idTokenState: idToken,
-        nameState: 'none',
-        pictureState: 'none',
-      ),
+      home: Profile(),
+      // home: Profile(
+      //   idTokenState: idToken,
+      //   nameState: 'none',
+      //   pictureState: 'none',
+      // ),
       // home: Profile(
       //   name: "none",
       //   phone: "none",

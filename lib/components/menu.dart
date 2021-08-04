@@ -5,7 +5,8 @@ class Menu extends StatefulWidget implements PreferredSizeWidget {
   final String title;
   final String img;
 
-  const Menu({Key? key, required this.title, required this.img}) : super(key: key);
+  const Menu({Key? key, required this.title, required this.img})
+      : super(key: key);
   @override
   Size get preferredSize => const Size.fromHeight(60);
 
@@ -28,9 +29,7 @@ class _MenuState extends State<Menu> {
     return AppBar(
       backgroundColor: Colors.redAccent,
       title: Text(
-
         'My Profile',
-
       ),
       actions: <Widget>[
         Container(
