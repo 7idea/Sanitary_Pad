@@ -12,6 +12,8 @@ class AllAddress extends StatefulWidget {
 class _AllAddressState extends State<AllAddress> {
   int selectedValue = 0;
 
+  Color selectedColor = Colors.pink[600] as Color;
+  Color unselectedColor = Colors.white;
   @override
   Widget build(BuildContext context) {
     var _address = Provider.of<AddressStore>(context);
@@ -37,19 +39,56 @@ class _AllAddressState extends State<AllAddress> {
               shrinkWrap: true,
               itemCount: _address.allAddressData.length,
               itemBuilder: (context, i) {
+                final selected = this.selectedValue == i;
+                Color color = selected ? selectedColor : unselectedColor;
                 return Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
                     children: [
-                      Transform.scale(
-                        scale: 2,
-                        child: Radio<int>(
-                          value: i,
-                          groupValue: selectedValue,
-                          onChanged: (value) =>
-                              setState(() => selectedValue = i),
-                        ),
+                      Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() => selectedValue = i);
+                            },
+                            child: selected
+                                ? Icon(Icons.check_box ,size: 30,color: color,)
+                                : Icon(Icons.check_box_outline_blank),
+                          ),
+                          // IconButton(
+                          //   icon: Icon(Icons.check_box_outline_blank),
+                          //   //check_box
+                          //   onPressed: () {},
+                          // ),
+                          // ElevatedButton(
+                          //   onPressed: () {
+                          //     setState(() => selectedValue = i);
+                          //   },
+                          //   child: Icon(Icons.check_box_outline_blank),
+                          //   style: ElevatedButton.styleFrom(
+                          //     // primary: Colors.white,
+                          //     side: BorderSide(
+                          //       width: 2.0,
+                          //       color: color,
+                          //     ),
+                          //   ),
+                          // ),
+                          SizedBox(width: 5),
+                          // Transform.scale(
+                          //   scale: 2,
+                          //   child: Radio<int>(
+                          //     activeColor: color,
+                          //     value: i,
+                          //     groupValue: selectedValue,
+                          //     onChanged: (value) =>
+                          //         setState(() => selectedValue = i),
+                          //   ),
+                          // ),
+                          Text('เลือกที่อยู่นี้เพื่อจัดส่ง',
+                              style: TextStyle(color: color)),
+                        ],
                       ),
+                      SizedBox(height: 5),
                       Table(
                         border: TableBorder.all(),
                         columnWidths: {
@@ -57,39 +96,39 @@ class _AllAddressState extends State<AllAddress> {
                           1: FlexColumnWidth(1),
                         },
                         children: [
-                          if (_address.address[i].sendAt == true)
-                            TableRow(
-                              children: [
-                                Container(
-                                  height: 51,
-                                  color: Colors.pink[400],
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 5, vertical: 12.0),
-                                    child: Text(
-                                      'ที่อยู่ในการส่ง',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 5, vertical: 16.0),
-                                  child: (() {
-                                    if (_address.address[i].sendAt == true) {
-                                      return Text(
-                                        'เลือก',
-                                        style:
-                                            TextStyle(color: Colors.pink[600]),
-                                      );
-                                    }
-                                  }()),
-                                )
-                              ],
-                            ),
+                          // if (_address.address[i].sendAt == true)
+                          //   TableRow(
+                          //     children: [
+                          //       Container(
+                          //         height: 51,
+                          //         color: Colors.pink[400],
+                          //         child: Padding(
+                          //           padding: const EdgeInsets.symmetric(
+                          //               horizontal: 5, vertical: 12.0),
+                          //           child: Text(
+                          //             'ที่อยู่ในการส่ง',
+                          //             style: TextStyle(
+                          //                 color: Colors.white,
+                          //                 fontWeight: FontWeight.bold,
+                          //                 fontSize: 18),
+                          //           ),
+                          //         ),
+                          //       ),
+                          //       Padding(
+                          //         padding: const EdgeInsets.symmetric(
+                          //             horizontal: 5, vertical: 16.0),
+                          //         child: (() {
+                          //           if (_address.address[i].sendAt == true) {
+                          //             return Text(
+                          //               'เลือก',
+                          //               style:
+                          //                   TextStyle(color: Colors.pink[600]),
+                          //             );
+                          //           }
+                          //         }()),
+                          //       )
+                          //     ],
+                          //   ),
                           TableRow(
                             children: [
                               Container(
@@ -291,6 +330,7 @@ class _AllAddressState extends State<AllAddress> {
               },
               child: Text('เลือกที่อยู่ในการส่ง'),
             ),
+            SizedBox(height: 50),
           ],
         ),
       ),
