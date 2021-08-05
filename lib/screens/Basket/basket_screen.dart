@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:san/Store/OrderStore.dart';
 import 'package:san/Store/ProductStore.dart';
 import 'package:san/screens/Checkout/checkout.dart';
+import 'package:san/screens/Profile/Address/all_address.dart';
 
 class BasketScreen extends StatelessWidget {
   @override
@@ -75,10 +76,10 @@ class BasketScreen extends StatelessWidget {
                 Expanded(
                   child: TextButton(
                     onPressed: () {
-                      _order.createOrder(_product.baskets);
+                      _order.createBasketToOrderStore(_product.baskets);
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Checkout()),
+                        MaterialPageRoute(builder: (context) => AllAddress()),
                       );
                     },
                     child: Text('ชำระเงิน'),

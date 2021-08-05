@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/AddressStore.dart';
+import 'package:san/Store/OrderStore.dart';
 
 class AddressWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var _address = Provider.of<AddressStore>(context);
+    var _order = Provider.of<OrderStore>(context);
 
     return Padding(
       padding: const EdgeInsets.all(20.0),
@@ -46,7 +46,7 @@ class AddressWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 5, vertical: 16.0),
                     child: Text(
-                      _address.address[0].name,
+                      _order.showOrder.address.name,
                     ),
                   ),
                 ],
@@ -72,7 +72,7 @@ class AddressWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 5, vertical: 16.0),
                     child: Text(
-                      _address.address[0].address,
+                      _order.showOrder.address.address,
                     ),
                   ),
                 ],
@@ -98,7 +98,7 @@ class AddressWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 5, vertical: 16.0),
                     child: Text(
-                      _address.address[0].province,
+                      _order.showOrder.address.province,
                     ),
                   ),
                 ],
@@ -124,7 +124,7 @@ class AddressWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 5, vertical: 16.0),
                     child: Text(
-                      _address.address[0].amphoe,
+                      _order.showOrder.address.amphoe,
                     ),
                   ),
                 ],
@@ -150,7 +150,7 @@ class AddressWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 5, vertical: 16.0),
                     child: Text(
-                      _address.address[0].zipcode.toString(),
+                      _order.showOrder.address.zipcode.toString(),
                     ),
                   )
                 ],
@@ -176,7 +176,7 @@ class AddressWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 5, vertical: 16.0),
                     child: Text(
-                      _address.address[0].phone.toString(),
+                      _order.showOrder.address.phone.toString(),
                     ),
                   )
                 ],
