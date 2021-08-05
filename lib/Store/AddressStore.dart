@@ -8,6 +8,7 @@ class AddressStore extends ChangeNotifier {
   String? _amphoe;
   int? _zipcode;
   int? _phone;
+  String? _type;
 
   Address? addressData;
   List<Address> address = [];
@@ -23,7 +24,7 @@ class AddressStore extends ChangeNotifier {
         zipcode: 10900,
         phone: 0123456789,
         type: 'ที่ทำงาน',
-        sendAt: true,
+        // sendAt: true,
       ),
       Address(
         name: 'สมหมาย หมายปอง',
@@ -33,7 +34,7 @@ class AddressStore extends ChangeNotifier {
         zipcode: 10210,
         phone: 0123456789,
         type: 'ที่บ้าน',
-        sendAt: false,
+        // sendAt: false,
       ),
       Address(
         name: 'ขจร คือดอกไม้',
@@ -44,7 +45,7 @@ class AddressStore extends ChangeNotifier {
         zipcode: 10200,
         phone: 0123456789,
         type: 'ที่บ้าน',
-        sendAt: false,
+        // sendAt: false,
       ),
     ];
     notifyListeners();
@@ -87,8 +88,15 @@ class AddressStore extends ChangeNotifier {
     notifyListeners();
   }
 
+  setType(String v) {
+    print('setType $v');
+    _type = v;
+    notifyListeners();
+  }
+
   setAddressData(Address v) {
     addressData = v;
+    address.add(v);
     notifyListeners();
   }
 
@@ -98,6 +106,7 @@ class AddressStore extends ChangeNotifier {
   get showAmphoe => _amphoe;
   get showZipcode => _zipcode;
   get showPhone => _phone;
+  get showType => _type;
 
   get showAddressData => addressData;
   get allAddressData => address;

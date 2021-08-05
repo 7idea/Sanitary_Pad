@@ -16,6 +16,7 @@ import 'Store/AmphoeStore.dart';
 import 'Store/ProfileStore.dart';
 import 'Store/ProvinceStore.dart';
 import 'Store/TambonStore.dart';
+import 'screens/Profile/Address/add_address.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -92,9 +93,9 @@ class MyApp extends StatelessWidget {
       initialRoute: SplashScreen.routeName,
       debugShowCheckedModeBanner: false,
       // home: Checkout(),
-      home: AllAddress(),
+      // home: AllAddress(),
       // home: ProductListPage(),
-      // home:AddAddress(),
+      home:AddAddress(),
       // home: LoginOrRegister(),
       // home:Profile(
       //   idTokenState: 'none',

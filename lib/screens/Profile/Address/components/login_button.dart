@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:san/Store/AddressStore.dart';
 import 'package:san/models/address.dart';
 
-class SaveAddress extends StatelessWidget {
+class SaveAddressButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _address = Provider.of<AddressStore>(context);
@@ -25,16 +25,17 @@ class SaveAddress extends StatelessWidget {
             primary: Colors.white,
           ),
           onPressed: () {
-            // _address.setAddressData(
-            //   Address(
-            //     name: _address.showName,
-            //     address: _address.showAddress,
-            //     province: _address.showProvince,
-            //     amphoe: _address.showAmphoe,
-            //     zipcode: _address.showZipcode,
-            //     phone: _address.showPhone,
-            //   ),
-            // );
+            _address.setAddressData(
+              Address(
+                name: _address.showName,
+                address: _address.showAddress,
+                province: _address.showProvince,
+                amphoe: _address.showAmphoe,
+                zipcode: _address.showZipcode,
+                phone: _address.showPhone,
+                type: _address.showType,
+              ),
+            );
           },
           child: Text('บันทึก', style: TextStyle(fontSize: 20.0)),
         ),
