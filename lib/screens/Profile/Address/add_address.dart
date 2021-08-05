@@ -8,6 +8,8 @@ import 'package:san/screens/Profile/Address/components/input_file.dart';
 import 'package:san/screens/Profile/Address/components/login_button.dart';
 import 'package:san/screens/Profile/Address/components/selection.dart';
 
+import 'components/select_type_widget.dart';
+
 class AddAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -42,15 +44,16 @@ class AddAddress extends StatelessWidget {
                   label: "ที่อยู่",
                   obscureText: false,
                 ),
-                Selection(title: _province.title),
-                Selection(title: _amphoe.title),
-                Selection(title: _tambon.title),
+                Selection(title: '  ${_province.title}'),
+                Selection(title: '  ${_amphoe.title}'),
+                Selection(title: '  ${_tambon.title}'),
                 InputField(
                   label: "หมายเลขโทรศัพท์",
                   obscureText: false,
                 ),
+                SelectTypeWidget(),
                 SizedBox(height: 100.0),
-                SaveAddress(),
+                SaveAddressButton(),
                 SizedBox(height: 30.0),
                 Row(
                   children: [
