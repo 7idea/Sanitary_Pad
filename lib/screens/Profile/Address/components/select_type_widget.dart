@@ -16,7 +16,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
           width: double.infinity,
           child: Container(
             child: Text(
-              'โปรดเลือกสถานที่จัดส่ง',
+              ' โปรดเลือกสถานที่จัดส่ง',
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 16,
