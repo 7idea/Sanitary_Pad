@@ -52,38 +52,14 @@ class _AllAddressState extends State<AllAddress> {
                               setState(() => selectedValue = i);
                             },
                             child: selected
-                                ? Icon(Icons.check_box ,size: 30,color: color,)
+                                ? Icon(
+                                    Icons.check_box,
+                                    size: 30,
+                                    color: color,
+                                  )
                                 : Icon(Icons.check_box_outline_blank),
                           ),
-                          // IconButton(
-                          //   icon: Icon(Icons.check_box_outline_blank),
-                          //   //check_box
-                          //   onPressed: () {},
-                          // ),
-                          // ElevatedButton(
-                          //   onPressed: () {
-                          //     setState(() => selectedValue = i);
-                          //   },
-                          //   child: Icon(Icons.check_box_outline_blank),
-                          //   style: ElevatedButton.styleFrom(
-                          //     // primary: Colors.white,
-                          //     side: BorderSide(
-                          //       width: 2.0,
-                          //       color: color,
-                          //     ),
-                          //   ),
-                          // ),
                           SizedBox(width: 5),
-                          // Transform.scale(
-                          //   scale: 2,
-                          //   child: Radio<int>(
-                          //     activeColor: color,
-                          //     value: i,
-                          //     groupValue: selectedValue,
-                          //     onChanged: (value) =>
-                          //         setState(() => selectedValue = i),
-                          //   ),
-                          // ),
                           Text('เลือกที่อยู่นี้เพื่อจัดส่ง',
                               style: TextStyle(color: color)),
                         ],
