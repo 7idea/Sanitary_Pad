@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/OrderStore.dart';
+import 'package:san/Store/order_store.dart';
 
 class AddressWidget extends StatelessWidget {
   @override

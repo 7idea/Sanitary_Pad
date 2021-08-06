@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:san/models/product.dart';
+import 'package:san/models/product_model.dart';
 import 'package:san/ui_config/size_config.dart';
 
 class ProductCard extends StatelessWidget {
   // final String image;
   // final num price;
   // final String title;
-  final Product product;
+  final ProductModel product;
 
   ProductCard({required this.product});
 
@@ -21,14 +21,15 @@ class ProductCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SingleChildScrollView(
-                          child: SizedBox(
+              child: SizedBox(
                 width: getProportionateScreenWidth(160),
                 child: AspectRatio(
                   aspectRatio: 1.02,
                   child: Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(product.images[0]), fit: BoxFit.fill),
+                          image: AssetImage(product.images[0]),
+                          fit: BoxFit.fill),
                       borderRadius: BorderRadius.circular(7),
                     ),
                     // child: Image.asset(product.images[0]),

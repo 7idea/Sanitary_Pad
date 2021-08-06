@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/ProfileStore.dart';
+import 'package:san/Store/profile_store.dart';
 import 'package:san/components/navigation_drawer_widget.dart';
 import 'package:san/screens/Home/product_list.dart';
 import 'package:san/screens/Profile/components/my_card.dart';

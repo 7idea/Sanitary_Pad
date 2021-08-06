@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/ProfileStore.dart';
-import 'package:san/screens/Checkout/checkout.dart';
+import 'package:san/Store/profile_store.dart';
 import 'package:san/screens/Home/product_list.dart';
 import 'package:san/screens/LoginOrRegister/login_or_register.dart';
 import 'package:san/screens/Profile/Address/add_address.dart';

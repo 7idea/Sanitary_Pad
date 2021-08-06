@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:san/models/product.dart';
+import 'package:san/models/product_model.dart';
 
 class ProductStore extends ChangeNotifier {
-  List<Product> _products = [];
-  List<Product> _baskets = [];
+  List<ProductModel> _products = [];
+  List<ProductModel> _baskets = [];
   late int _index;
   int _qty = 0;
 
-  Product nullData = Product(
+  ProductModel nullData = ProductModel(
     id: 0,
     images: [''],
     title: 'null',
@@ -18,7 +18,7 @@ class ProductStore extends ChangeNotifier {
 
   ProductStore() {
     _products = [
-      Product(
+      ProductModel(
           id: 1,
           images: ['assets/images/sanBlack.jpg', 'asset/images/sanBlack2.jpg'],
           title: 'Kind Black',
@@ -26,7 +26,7 @@ class ProductStore extends ChangeNotifier {
           qty: 1,
           description:
               'Always Ultra Thin, Size 4, Overnight Pads With Wings, Unscented, 50 Count (Pack of 3)'),
-      Product(
+      ProductModel(
         id: 2,
         images: ['assets/images/sanPur.jpg', 'asset/images/sanPur2.jpg'],
         title: 'Kind Purple',
@@ -34,7 +34,7 @@ class ProductStore extends ChangeNotifier {
         qty: 1,
         description: 'Pads with Wings for Women, Overnight Pads With Wings',
       ),
-      Product(
+      ProductModel(
           id: 3,
           images: ['assets/images/sanGreen.jpg', 'asset/images/sanGreen2.jpg'],
           title: 'Kind Green',
@@ -42,7 +42,7 @@ class ProductStore extends ChangeNotifier {
           qty: 1,
           description:
               'Super dry Feminine Pads with Wings for Women, Super Absorbency, Unscented, Size 2 (126 Count)'),
-      Product(
+      ProductModel(
         id: 4,
         images: ['assets/images/sanBlue.jpg', 'asset/images/sanBlue2.jpg'],
         title: 'Kind Blue',
@@ -58,13 +58,13 @@ class ProductStore extends ChangeNotifier {
     _index = i;
   }
 
-  List<Product> get products => _products;
-  List<Product> get baskets => _baskets;
+  List<ProductModel> get products => _products;
+  List<ProductModel> get baskets => _baskets;
   get productDetail => _products[_index];
   get showQty => _qty;
 
-  addOneItemToBasket(Product p) {
-    Product found =
+  addOneItemToBasket(ProductModel p) {
+    ProductModel found =
         _baskets.firstWhere((a) => a.id == p.id, orElse: () => nullData);
 
     if (found.title != 'null') {
@@ -75,8 +75,8 @@ class ProductStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  removeOneItemToBasket(Product p) {
-    Product found =
+  removeOneItemToBasket(ProductModel p) {
+    ProductModel found =
         _baskets.firstWhere((a) => a.id == p.id, orElse: () => nullData);
     if (found.title != 'null' && found.qty == 1) {
       _baskets.remove(p);

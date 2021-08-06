@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:san/models/product.dart';
+import 'package:san/models/product_model.dart';
 import 'package:san/ui_config/size_config.dart';
 
 class ProductCard extends StatelessWidget {
   // final String image;
   // final num price;
   // final String title;
-  final Product product;
+  final ProductModel product;
 
   ProductCard({required this.product});
 

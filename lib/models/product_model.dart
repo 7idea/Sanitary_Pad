@@ -1,4 +1,4 @@
-class Product {
+class ProductModel {
   final List<String> images;
   final int price;
   int qty;
@@ -7,7 +7,7 @@ class Product {
   final String title;
   bool? isFavourite = false;
 
-  Product({
+  ProductModel({
     required this.id,
     required this.images,
     this.description,

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:san/models/address.dart';
+import 'package:san/models/address_model.dart';
 import 'package:san/models/order_model.dart';
-import 'package:san/models/product.dart';
+import 'package:san/models/product_model.dart';
 
 class OrderStore extends ChangeNotifier {
-  List<Product> _basket = [];
+  List<ProductModel> _basket = [];
   int _sum = 0;
-  Address? _address;
+  AddressModel? _address;
   OrderModel? _order;
 
-  createBasketToOrderStore(List<Product> p) {
+  createBasketToOrderStore(List<ProductModel> p) {
     _sum = 0;
     _basket = p;
     for (int i = 0; i < _basket.length; i++) {
@@ -18,7 +18,7 @@ class OrderStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  createAddress(Address a) {
+  createAddress(AddressModel a) {
     _address = a;
     notifyListeners();
   }

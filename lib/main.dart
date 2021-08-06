@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'package:san/Store/AddressStore.dart';
-import 'package:san/Store/OrderStore.dart';
-import 'package:san/Store/ProductStore.dart';
+import 'package:san/Store/address_store.dart';
+import 'package:san/Store/order_store.dart';
+import 'package:san/Store/product_store.dart';
 import 'package:san/screens/Checkout/checkout.dart';
 import 'package:san/screens/Home/product_list.dart';
 import 'package:san/screens/LoginOrRegister/login_or_register.dart';
-import 'package:san/screens/Profile/Address/all_address.dart';
+
 import 'package:san/screens/Splash_Screen/index.dart';
 import 'dart:convert'; //json.decode
 import 'package:flutter_line_sdk/flutter_line_sdk.dart';
 import 'package:san/screens/Profile/profile.dart';
-import 'Store/AmphoeStore.dart';
-import 'Store/ProfileStore.dart';
-import 'Store/ProvinceStore.dart';
-import 'Store/TambonStore.dart';
+import 'Store/amphoe_store.dart';
+import 'Store/profile_store.dart';
+import 'Store/province_store.dart';
+import 'Store/tambon_store.dart';
 import 'screens/Profile/Address/add_address.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -95,7 +96,7 @@ class MyApp extends StatelessWidget {
       // home: Checkout(),
       // home: AllAddress(),
       // home: ProductListPage(),
-      home:AddAddress(),
+      home: AddAddress(),
       // home: LoginOrRegister(),
       // home:Profile(
       //   idTokenState: 'none',

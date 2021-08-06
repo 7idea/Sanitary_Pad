@@ -1,9 +1,11 @@
-class Province {
+class AmphoeModel {
   final int id;
   final String name;
+  final int provinceId;
 
-  Province({
+  AmphoeModel({
     required this.id,
     required this.name,
+    required this.provinceId,
   });
 }
