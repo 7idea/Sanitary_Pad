@@ -1,4 +1,5 @@
 class TransactionModel {
+  int id;
   DateTime time;
   int amount;
   String slip;
@@ -8,6 +9,7 @@ class TransactionModel {
   String toBankAccount;
 
   TransactionModel({
+    required this.id,
     required this.time,
     required this.amount,
     required this.slip,
