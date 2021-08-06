@@ -1,11 +1,11 @@
-class Tambon {
+class TambonModel {
   final int id;
   final String name;
   final int provinceId;
   final int amphoeId;
   final List<String> zipcode;
 
-  Tambon({
+  TambonModel({
     required this.id,
     required this.name,
     required this.provinceId,

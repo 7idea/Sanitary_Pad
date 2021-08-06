@@ -1,10 +1,10 @@
-import 'package:san/models/address.dart';
-import 'package:san/models/product.dart';
+import 'package:san/models/address_model.dart';
+import 'package:san/models/product_model.dart';
 
 class OrderModel {
   // final int? id;
-  final List<Product> basket;
-  final Address? address;
+  final List<ProductModel> basket;
+  final AddressModel? address;
   final int? sum;
 
   OrderModel({

@@ -1,4 +1,4 @@
-class Address {
+class AddressModel {
   final String name;
   final String address;
   final String province;
@@ -8,7 +8,7 @@ class Address {
   final String type;
   // final bool sendAt;
 
-  Address({
+  AddressModel({
     required this.name,
     required this.address,
     required this.province,

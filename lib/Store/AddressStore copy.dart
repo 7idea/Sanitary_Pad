@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:san/models/address.dart';
+import 'package:san/models/address_model.dart';
 
 class AddressStore extends ChangeNotifier {
   String? _name;
@@ -8,8 +8,8 @@ class AddressStore extends ChangeNotifier {
   String? _amphoe;
   int? _zipcode;
   int? _phone;
-  
-  Address? addressData;
+
+  AddressModel? addressData;
 
   setName(String v) {
     print('setName $v');
@@ -48,7 +48,7 @@ class AddressStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  setAddressData(Address v) {
+  setAddressData(AddressModel v) {
     addressData = v;
     notifyListeners();
   }

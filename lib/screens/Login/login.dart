@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_line_sdk/flutter_line_sdk.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/ProfileStore.dart';
+import 'package:san/Store/profile_store.dart';
 import 'package:san/models/profile_model.dart';
 import 'package:san/screens/Login/components/input_file.dart';
 import 'package:san/screens/Login/components/login_button.dart';

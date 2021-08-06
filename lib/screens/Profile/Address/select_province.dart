@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/AddressStore.dart';
-import 'package:san/Store/ProvinceStore.dart';
+import 'package:san/Store/address_store.dart';
+import 'package:san/Store/province_store.dart';
 import 'package:san/screens/Profile/Address/select_amphoe.dart';
 
 class SelectProvince extends StatelessWidget {

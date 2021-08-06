@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:san/models/address.dart';
+import 'package:san/models/address_model.dart';
 
 class AddressStore extends ChangeNotifier {
   String? _name;
@@ -10,12 +10,12 @@ class AddressStore extends ChangeNotifier {
   int? _phone;
   String? _type;
 
-  Address? addressData;
-  List<Address> address = [];
+  AddressModel? addressData;
+  List<AddressModel> address = [];
 
   AddressStore() {
     address = [
-      Address(
+      AddressModel(
         name: 'โชคชัย มีแย้ม',
         address:
             'เลขที่ 21 อาคารทีเอสทีทาวเวอร์ ชั้น 20 ซอยเฉยพ่วง ถนนวิภาวดี-รังสิต แขวงจอมพล เขตจตุจักร',
@@ -26,7 +26,7 @@ class AddressStore extends ChangeNotifier {
         type: 'ที่ทำงาน',
         // sendAt: true,
       ),
-      Address(
+      AddressModel(
         name: 'สมหมาย หมายปอง',
         address: 'เลขที่ 72 ถ.แจ้งวัฒนะ ต.ตลาดบางเขน อ.หลักสี่',
         province: 'กรุงเทพ',
@@ -36,7 +36,7 @@ class AddressStore extends ChangeNotifier {
         type: 'ที่บ้าน',
         // sendAt: false,
       ),
-      Address(
+      AddressModel(
         name: 'ขจร คือดอกไม้',
         address:
             '1/102 หมู่ 6 ซอยชินเขต 1/21 งามวงศ์วาน ต.ทุ่งสองห้อง อ.หลักสี่',
@@ -94,7 +94,7 @@ class AddressStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  setAddressData(Address v) {
+  setAddressData(AddressModel v) {
     addressData = v;
     address.add(v);
     notifyListeners();

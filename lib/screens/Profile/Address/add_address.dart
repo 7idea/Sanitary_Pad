@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/AddressStore.dart';
-import 'package:san/Store/AmphoeStore.dart';
-import 'package:san/Store/ProvinceStore.dart';
-import 'package:san/Store/TambonStore.dart';
-import 'package:san/screens/Profile/Address/components/input_file.dart';
-import 'package:san/screens/Profile/Address/components/login_button.dart';
-import 'package:san/screens/Profile/Address/components/selection.dart';
-
+import 'package:san/Store/address_store.dart';
+import 'package:san/Store/amphoe_store.dart';
+import 'package:san/Store/province_store.dart';
+import 'package:san/Store/tambon_store.dart';
+import 'components/input_file.dart';
+import 'components/login_button.dart';
 import 'components/select_type_widget.dart';
+import 'components/selection.dart';
 
 class AddAddress extends StatelessWidget {
   @override

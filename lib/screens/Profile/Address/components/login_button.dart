@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/AddressStore.dart';
-import 'package:san/models/address.dart';
+import 'package:san/Store/address_store.dart';
+import 'package:san/models/address_model.dart';
 
 class SaveAddressButton extends StatelessWidget {
   @override
@@ -26,7 +26,7 @@ class SaveAddressButton extends StatelessWidget {
           ),
           onPressed: () {
             _address.setAddressData(
-              Address(
+              AddressModel(
                 name: _address.showName,
                 address: _address.showAddress,
                 province: _address.showProvince,

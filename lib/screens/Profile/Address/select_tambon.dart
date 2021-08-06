@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:san/Store/AddressStore.dart';
-import 'package:san/Store/AmphoeStore.dart';
-import 'package:san/Store/TambonStore.dart';
+import 'package:san/Store/address_store.dart';
+import 'package:san/Store/amphoe_store.dart';
+import 'package:san/Store/tambon_store.dart';
 
 class SelectTambon extends StatelessWidget {
   @override
